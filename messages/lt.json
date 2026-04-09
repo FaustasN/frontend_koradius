@@ -1,0 +1,654 @@
+{
+  "HeroSection": {
+      "title": "Atrask savo geriausią kelionę",
+      "subtitle": "Sukuriame nepamirštamus kelionių išgyvenimus jau daugiau nei 7 metus. Leiskite mums padėti jums atrasti pasaulio grožį.",
+      "cta": "Tyrinėti keliones",
+      "yearsOfExperience": "Metų patirtis",
+      "happyCustomers": "Laimingų klientų",
+      "countries": "Šalių"
+  },
+  "WhyChooseUsSection": {
+    "title": "Kodėl rinktis mus",
+      "subtitle": "7 metų patirtis ir tūkstančiai patenkintų klientų kalba už mus",
+      "features": {
+        "customerCare": {
+          "title": "Rūpestis klientais",
+          "description": "Kiekvienas klientas mums yra svarbus. Ypač rūpinamės vyresnio amžiaus žmonių komfortu ir poreikiais."
+        },
+        "reliability": {
+          "title": "Patikimumas",
+          "description": "7 metų patirtis, LTKIA narystė ir visapusiškas draudimas garantuoja jūsų saugumą."
+        },
+        "highQuality": {
+          "title": "Aukšta kokybė",
+          "description": "Kruopščiai atrinkti partneriai ir paslaugų teikėjai užtikrina aukščiausią kokybę."
+        },
+        "support24_7": {
+          "title": "24/7 palaikymas",
+          "description": "Esame pasiekiami bet kuriuo paros metu kelionės metu. Skubios pagalbos linija visada veikia."
+        },
+        "lithuanianTeam": {
+          "title": "Lietuviška komanda",
+          "description": "Visi mūsų specialistai kalba lietuviškai ir supranta lietuvių kultūrą bei poreikius."
+        },
+        "wideNetwork": {
+          "title": "Platus tinklas",
+          "description": "Partneriai 50+ šalyse leidžia mums siūlyti geriausius pasiūlymus ir kainas."
+        
+        }
+      },
+      "trustIndicators": {
+        "yearsExperience": "Metų patirtis",
+        "happyCustomers": "Laimingų klientų",
+        "customerSatisfaction": "Klientų pasitenkinimas",
+        "countries": "Šalių"
+      }
+    },
+    "QuickStatsSection": {
+      "customerReturn": {
+        "label": "Klientų grįžta pakartotinai",
+        "description": "Mūsų klientai renkasi mus ne kartą"
+      },
+      "support24_7": {
+        "label": "Palaikymas kelionės metu",
+        "description": "Visada esame pasiekiami pagalbai"
+      },
+      "averageRating": {
+        "label": "Vidutinis įvertinimas",
+        "description": "Pagal klientų atsiliepimus"
+      },
+      "customerSatisfaction": {
+        "label": "Klientų pasitenkinimas",
+        "description": "Kiekvienais metais mūsų klientai palieka atsiliepimus apie mūsų paslaugas"
+      }
+    },
+    "FooterSection": {
+      "description": "Jūsų patikimas partneris neužmirštamiems kelionių potyriams",
+    "contactInfo": "Kontaktinė informacija",
+    "followUs": "Sekite mus",
+    "newsletter": "Naujienlaiškis",
+    "subscribe": "Prenumeruoti",
+    "emailPlaceholder": "Įveskite savo el. paštą",
+    "copyright": "© 2024 Koradius. Visos teisės saugomos.",
+    "companyInfo": {
+      "mission": "Jūsų patikimas kelionių partneris, kuriantis nepamirštamus kelionių išgyvenimus jau 7 metus."
+    },
+    "quickLinks": {
+      "title": "Greitos nuorodos",
+      "home": "Pradžia",
+      "tours": "Kelionės",
+      "gallery": "Galerija",
+      "reviews": "Atsiliepimai",
+      "about": "Apie mus",
+      "contact": "Kontaktai"
+    },
+    "contact": {
+      "title": "Kontaktai",
+      "emergencyHelp": {
+        "title": "24/7 Pagalba",
+        "description": "Skubus ryšys kelionės metu:"
+      }
+    },
+    "bottomFooter": {
+      "copyright": "© 2026 Koradius Travel. Visos teisės saugomos.",
+      "privacyPolicy": "Privatumo politika",
+      "termsOfUse": "Naudojimo taisyklės",
+      "cookies": "Slapukai"
+    }
+    },
+    "header": {
+      "home": "Pagrindinis",
+      "about": "Apie mus",
+      "gallery": "Galerija",
+      "contact": "Kontaktai",
+      "dashboard": "Dashboard",
+      "searchTours": "Ieškoti kelionių",
+      "reviews": "Atsiliepimai",
+      "search": "Paieška"
+    },
+    "about": {
+      "title": "Apie mus",
+      "subtitle": "Jūsų patikimas kelionių partneris",
+      "description": "Mes aistringai kuriame neužmirštamus kelionių potyrius. Mūsų ekspertų komanda stengiasi, kad kiekviena kelionė būtū ypatinga.",
+      "mission": "Mūsų misija",
+      "missionText": "Teikti išskirtinius kelionių potyrius, kurie įkvepia ir sujungia žmones su gražiausiais pasaulio kampeliais.",
+      "vision": "Mūsų vizija",
+      "visionText": "Būti pirmaujančia kelionių bendrove, žinoma dėl inovacijų, kokybės ir klientų pasitenkinimo.",
+      "hero": {
+        "title": {
+          "firstPart": "Apie",
+          "secondPart": "mus"
+        },
+        "subtitle": "Jau 7 metus kuriame nepamirštamus kelionių išgyvenimus lietuviams. Mūsų misija - padėti jums atrasti pasaulio grožį saugiai ir patogiai."
+      },
+      "story": {
+        "title": "Mūsų istorija",
+        "paragraph1": "Koradius Travel gimė iš aistros kelionėms ir noro padėti lietuviams atrasti pasaulio grožį. 2017 metais įskūrusi nedidelė kelionių agentūra, kuri svajojo sukurti paslaugą, kuri būtų pritaikyta būtent lietuvių poreikiams.",
+        "paragraph2": "Per 7 metus išaugome į patikimą kelionių partnerį, kuris specializuojasi ne tik įprastose atostogose, bet ir medicininiam turizmui. Ypač didžiuojamės tuo, kad mūsų paslaugos yra pritaikytos vyresnio amžiaus žmonėms - suprantame jūsų poreikius ir rūpinamės komfortu kiekviename žingsnyje.",
+        "paragraph3": "Šiandien esame išsiuntę į keliones daugiau nei 5000 lietuvių ir tęsiame augti, išlaikydami asmeninį požiūrį į kiekvieną klientą. Mūsų tikslas - ne tik parduoti kelionę, bet sukurti nepamirštamą išgyvenimą."
+      },
+      "values": {
+        "title": "Mūsų vertybės",
+        "customerCare": {
+          "title": "Rūpestis klientais",
+          "description": "Kiekvienas klientas mums yra svarbus. Stengiamės suprasti jūsų poreikius ir sukurti tobulą kelionę, ypač atsižvelgdami į vyresnio amžiaus žmonių poreikius."
+        },
+        "reliability": {
+          "title": "Patikimumas",
+          "description": "7 metai rinkoje įrodė mūsų patikimumą. Garantuojame kokybę ir saugumą visose kelionėse. Turime visus reikalingus sertifikatus ir draudimus."
+        },
+        "experience": {
+          "title": "Patirtis",
+          "description": "Turime platų partnerių tinklą visame pasaulyje ir žinome geriausius pasiūlymus. Mūsų komanda reguliariai keliauja ir tikrina paslaugų kokybę."
+        },
+        "support24_7": {
+          "title": "24/7 palaikymas",
+          "description": "Esame pasiekiami bet kuriuo paros metu, kad padėtume spręsti bet kokius klausimus kelionės metu. Turime skubios pagalbos liniją."
+        }
+      },
+      "achievements": {
+        "title": "Mūsų pasiekimai",
+        "yearsExperience": {
+          "number": "7+",
+          "label": "Metų patirtis",
+          "description": "Nuo 2017 metų"
+        },
+        "happyCustomers": {
+          "number": "5000+",
+          "label": "Laimingų klientų",
+          "description": "Kasmet aptarnaujame apie 1000 klientų"
+        },
+        "countries": {
+          "number": "50+",
+          "label": "Šalių",
+          "description": "Visose žemynuose"
+        },
+        "customerSatisfaction": {
+          "number": "98%",
+          "label": "Klientų pasitenkinimas",
+          "description": "Pagal atsiliepimus"
+        }
+      },
+      "certifications": {
+        "title": "Sertifikatai ir narystės",
+        "ltkia": {
+          "title": "LTKIA narys",
+          "description": "Lietuvos turizmo ir kelionių agentūrų asociacijos narys nuo 2017"
+        },
+        "iata": {
+          "title": "IATA agentas",
+          "description": "Tarptautinės oro transporto asociacijos akredituotas agentas"
+        },
+        "etoa": {
+          "title": "ETOA narys",
+          "description": "Europos turizmo operatorių asociacijos narys"
+        }
+      },
+      "heroBadge": {
+        "yearsExperience": "Metų patirtis"
+      },
+      "missionVision": {
+        "mission": {
+          "title": "Mūsų misija",
+          "description": "Sukurti nepamirštamus kelionių išgyvenimus kiekvienam klientui, ypač atsižvelgiant į vyresnio amžiaus žmonių poreikius. Teikti aukščiausios kokybės paslaugas, užtikrinant saugumą, komfortą ir asmeninį požiūrį."
+        },
+        "vision": {
+          "title": "Mūsų vizija",
+          "description": "Tapti pirmaujančia kelionių agentūra Lietuvoje, žinoma dėl išskirtinio klientų aptarnavimo, patikimumo ir inovatyvių sprendimų. Padėti kiekvienam lietuviui atrasti pasaulio grožį ir sukurti nepamirštamus prisiminimus."
+        }
+      },
+      "callToAction": {
+        "title": "Pasiruošę pradėti savo kelionę su mumis?",
+        "contactButton": "Susisiekti su mumis",
+        "viewToursButton": "Žiūrėti keliones"
+      }
+    },
+    "searchPage": {
+      "loading": {
+        "title": "Kraunama paieškos forma...",
+        "subtitle": "Jungiamasi prie Novaturas sistemos"
+      },
+      "error": {
+        "title": "Klaida įkeliant paieškos formą",
+        "retryButton": "🔄 Bandyti iš naujo"
+      }
+    },
+    "contact": {
+      "title": "Susisiekite su mumis",
+      "subtitle": "Susisiekite su mūsų komanda",
+      "hero": {
+        "title": {
+          "firstPart": "Susisiekite",
+          "secondPart": "su mumis"
+        },
+        "subtitle": "Turite klausimų apie keliones? Mūsų komanda pasiruošusi jums padėti!"
+      },
+      "quickContact": {
+        "phone": {
+          "title": "Skambinkite dabar",
+          "description": "Greičiausias būdas gauti atsakymą",
+          "button": "+370 694 98078"
+        },
+        "email": {
+          "title": "Rašykite el. laišką",
+          "description": "Atsakysime per 2-4 valandas",
+          "button": "Rašyti laišką"
+        }
+      },
+      "form": {
+        "title": "Parašykite mums",
+        "name": {
+          "label": "Vardas, pavardė *",
+          "placeholder": "Jūsų vardas ir pavardė"
+        },
+        "email": {
+          "label": "El. paštas *",
+          "placeholder": "jusu@email.com"
+        },
+        "phone": {
+          "label": "Telefonas",
+          "placeholder": "37060012345"
+        },
+        "subject": {
+          "label": "Tema *",
+          "placeholder": "Pasirinkite temą"
+        },
+        "preferredContact": {
+          "label": "Pageidaujamas ryšio būdas",
+          "email": "El. paštas",
+          "phone": "Telefonas",
+          "both": "Abu būdai"
+        },
+        "urgency": {
+          "label": "Skubumas",
+          "normal": "Įprastas",
+          "urgent": "Skubus",
+          "emergency": "Labai skubus"
+        },
+        "message": {
+          "label": "Žinutė *",
+          "placeholder": "Parašykite savo klausimą ar pageidavimus...",
+          "minLength": "Minimalus ilgis: 3 simboliai, maksimalus: 70 simbolių",
+          "charCount": "simbolių"
+        },
+        "submit": {
+          "button": "Siųsti žinutę",
+          "sending": "Siunčiama..."
+        },
+        "subjects": [
+          "Bendrasis klausimas",
+          "Kelionės užsakymas",
+          "Medicininis turizmas",
+          "Grupės kelionė",
+          "Skundas ar pasiūlymas",
+          "Techninė pagalba",
+          "Partnerystė",
+          "Kita"
+        ],
+        "validation": {
+          "fillAllFields": "Prašome užpildyti visus privalomus laukus",
+          "nameMinLength": "Vardas turi būti bent 3 raidžių ilgio",
+          "emailInvalid": "El. paštas turi turėti @ ir . simbolius",
+          "phoneInvalid": "Telefono numeris turi būti bent 6 skaičių ir turėti tik skaičius",
+          "messageMinLength": "Žinutė turi būti bent 3 simbolių ilgio",
+          "messageMaxLength": "Žinutė negali būti ilgesnė nei 70 simbolių",
+             "errorMessage": "Klaida",
+             "successMessage": "Ačiū už jūsų žinutę!",
+             "successDescription": "Susisieksime su jumis per 24 valandas. Patikrinkite savo el. paštą dėl patvirtinimo."
+        }
+      },
+      "info": {
+        "address": "Adresas",
+        "phone": "Telefonas",
+        "email": "El. paštas",
+        "workingHours": "Darbo valandos"
+      },
+      "contactInfo": {
+        "title": "Kontaktinė informacija",
+        "address": {
+          "title": "Adresas",
+          "details": [
+            "Švitrigailos g. 11A-330",
+            "LT-03228 Vilnius",
+            "Lietuva"
+          ]
+        },
+        "phone": {
+          "title": "Telefonai",
+          "details": [
+            "+370 694 98078"
+          ]
+        },
+        "email": {
+          "title": "El. paštas",
+          "details": [
+            "koradiustravel@gmail.com"
+          ]
+        },
+        "workingHours": {
+          "title": "Darbo laikas",
+          "details": [
+            "Pr-Pn: 9:00 - 18:00",
+            "Šeštadieniais: 10:00 - 15:00",
+            "Sekmadieniais: uždaryta"
+          ]
+        },
+        "officeHours": {
+          "title": "Darbo laikas",
+          "days": {
+            "monday": "Pirmadienis",
+            "tuesday": "Antradienis",
+            "wednesday": "Trečiadienis",
+            "thursday": "Ketvirtadienis",
+            "friday": "Penktadienis",
+            "saturday": "Šeštadienis",
+            "sunday": "Sekmadienis"
+          },
+          "hours": {
+            "open": "9:00 - 18:00",
+            "limited": "10:00 - 15:00",
+            "closed": "Uždaryta"
+          }
+        },
+        "location": {
+          "title": "Mūsų buveinė",
+          "description": "Atvykite į mūsų biurą Vilniaus centre"
+        },
+        "faq": {
+          "title1": "Dažnai užduodami",
+          "title2": "klausimai",
+          "questions": {
+            "responseTime": { 
+              "question": "Kaip greitai atsakote į užklausas?",
+              "answer": "Į el. laiškus atsakome per 2-4 valandas darbo dienomis. Telefonu - iš karto."
+            },
+            "appointment": {
+              "question": "Ar galiu atvykti be išankstinio susitarimo?",
+              "answer": "Taip, bet rekomenduojame iš anksto susitarti, kad galėtume skirti pakankamai laiko."
+            },
+            "language": {
+              "question": "Ar teikiate konsultacijas lietuvių kalba?",
+              "answer": "Taip, visi mūsų specialistai kalba lietuviškai ir supranta vyresnio amžiaus žmonių poreikius."
+            },
+            "tripChanges": {
+              "question": "Ar galiu keisti kelionės detales?",
+              "answer": "Taip, priklausomai nuo kelionės tipo ir laiko. Susisiekite su mumis dėl detalių."
+            },
+            "payment": {
+              "question": "Kokios mokėjimo galimybės?",
+              "answer": "Priimame grynuosius, korteles, banko pavedimus ir išsimokėjimą."
+            },
+            "insurance": {
+              "question": "Ar turite draudimą?",
+              "answer": "Taip, turime visus reikalingus draudimus ir esame LTKIA nariai."
+            }
+          }
+        }
+      }
+    },
+    "reviews": {
+      "loading": "Kraunama...",
+      "title": {
+        "firstPart": "Klientų",
+        "secondPart": "atsiliepimai"
+      },
+      "subtitle": "Sužinokite, ką sako mūsų klientai apie keliones su Koradius Travel",
+      "stats": {
+        "averageRating": "Vidutinis įvertinimas",
+        "totalReviews": "Atsiliepimų",
+        "recommendFriends": "Rekomenduoja draugams",
+        "returnCustomers": "Grįžta pakartotinai"
+      },
+      "ratings": {
+        "all": "Visi įvertinimai",
+        "fiveStars": "5 žvaigždutės",
+        "fourStars": "4 žvaigždutės",
+        "threeStars": "3 žvaigždutės"
+      },
+      "filters": {
+        "rating": "Įvertinimas"
+      },
+      "noReviews": {
+        "title": "Atsiliepimų nėra",
+        "noRatingFilter": "Nėra atsiliepimų atitinkančių pasirinktą reitingą",
+        "noApprovedReviews": "Kol kas nėra patvirtintų atsiliepimų"
+      },
+      "trustIndicators": {
+        "verifiedReviews": {
+          "title": "Patikimi atsiliepimai",
+          "description": "Visi atsiliepimai yra tikrinti ir patvirtinti"
+        },
+        "realCustomers": {
+          "title": "Tikri klientai",
+          "description": "Tik tikrų klientų nuomonės ir patirtys"
+        },
+        "highRating": {
+          "title": "Aukštas įvertinimas",
+          "description": "98% klientų rekomenduoja mūsų paslaugas"
+        }
+      },
+      "featuredReviews": "Išskirtiniai atsiliepimai",
+      "allReviews": "Visi atsiliepimai",
+      "shareExperience": {
+        "title": "Pasidalinkite savo patirtimi",
+        "subtitle": "Jūsų atsiliepimas padės kitiems keliautojams pasirinkti tinkamą kelionę",
+        "button": "Rašyti atsiliepimą"
+      },
+      "form": {
+        "name": "Jūsų vardas *",
+        "email": "El. paštas *",
+        "tripType": "Kelionės tipas *",
+        "tripNumber": "Kelionės numeris (nebūtina)",
+        "rating": "Įvertinimas *",
+        "selectRating": "Pasirinkite įvertinimą",
+        "review": "Jūsų atsiliepimas *",
+        "placeholders": {
+          "name": "Įveskite savo vardą",
+          "email": "Įveskite savo el. paštą",
+          "tripNumber": "Pvz.: KT2024-001",
+          "review": "Pasidalinkite savo patirtimi, kaip praėjo kelionė, kas patiko, kas galėtų būti geriau..."
+        },
+        "helpers": {
+          "tripNumber": "Kelionės numeris padės mums geriau suprasti jūsų patirtį",
+          "ratingQuestion": "Kiek žvaigždžių suteiktumėte mūsų paslaugoms?"
+        },
+        "validation": {
+          "minLength": "Minimalus ilgis: 15 simbolių",
+          "charCount": "simbolių",
+          "fillAllFields": "Prašome užpildyti visus laukus ir pasirinkti įvertinimą",
+          "nameMinLength": "Vardas turi būti bent 3 raidžių ilgio",
+          "emailInvalid": "El. paštas turi turėti @ ir . simbolius",
+          "descriptionMinLength": "Atsiliepimas turi būti bent 15 simbolių ilgio"
+        },
+        "autoDate": "Atsiliepimo data bus automatiškai nustatyta:",
+        "buttons": {
+          "cancel": "Atšaukti",
+          "submit": "Siųsti atsiliepimą",
+          "submitting": "Siunčiama..."
+        },
+        "options": {
+          "vacation": "Poilsinės kelionės",
+          "weekend": "Savaitgalio kelionės",
+          "medical": "Medicininis turizmas",
+          "nature": "Gamtos kelionės"
+        }
+      },
+      "modalTitle": "Rašyti atsiliepimą",
+      "notifications": {
+        "title": "Pranešimai",
+        "error": "Klaida",
+        "success": "Ačiū už atsiliepimą!",
+        "successDescription": "Jūsų atsiliepimas buvo sėkmingai išsiųstas ir bus peržiūrėtas. Jis padės kitiems keliautojams pasirinkti tinkamą kelionę.",
+        "errorDescription": "Prašome užpildyti visus laukus ir pasirinkti įvertinimą",
+        "sortBy": "Rūšiuoti pagal",
+        "date": "Datą",
+        "priority": "Prioritetą",
+        "type": "Tipą",
+        "readAll": "Pažymėti viską kaip perskaityta",
+        "read": "Peržiūrėti",
+        "markAsRead": "Pažymėti kaip perskaityta",
+        "new": "Nauja",
+        "system": "Sistema",
+        "review": "Atsiliepimas",
+        "order": "Užsakymas",
+        "contact": "Kontaktas",
+        "low": "Žemas prioritetas",
+        "medium": "Vidutinis prioritetas",
+        "high": "Aukštas prioritetas"
+      }
+    },
+    "gallery": {
+    "title": "Nuotraukų galerija",
+    "subtitle": "Fiksuojame akimirkas iš viso pasaulio",
+    "filterAll": "Visi",
+    "filterDestinations": "Maršrutai",
+    "filterCulture": "Kultūra",
+    "filterNature": "Gamta",
+    "galleryPage": {
+      "author": "Autorius", 
+      "date": "Data",
+      "title": {
+        "firstPart": "Kelionių",
+        "secondPart": "galerija"
+      },
+      "subtitle": "Pažiūrėkite, kur jau apsilankė mūsų klientai ir įkvėpkitės savo kitai kelionei",
+      "stats": {
+        "photos": "Nuotraukos",
+        "likes": "Patinka"
+      },
+      "loading": "Kraunamos nuotraukos...",
+      "error": "Failed to load gallery images. Please try again later.",
+      "retryButton": "Bandyti dar kartą"
+    },
+    "filters": {
+      "all": "Visos nuotraukos",
+      "beach": "Paplūdimiai",
+      "city": "Miestai",
+      "nature": "Gamta"
+    },
+    "uploadSection": {
+      "title": "Pasidalinkite savo kelionių nuotraukomis",
+      "description": "Norite, kad jūsų nuotraukos atsidurtų mūsų galerijoje? Siųskite jas į",
+      "and": "ir įkvėpkite kitus keliautojus!"
+    },
+    "photoContest": {
+      "title": {
+        "firstPart": "Mėnesio nuotraukų",
+        "secondPart": "konkursas"
+      },
+      "description": "Kiekvieną mėnesį renkame geriausią kelionės nuotrauką ir apdovanojame autorių!",
+      "firstPlace": {
+        "title": "1 vieta",
+        "description": "Kelionė į pasirinktą šalį",
+        "value": "500€ vertės"
+      },
+      "secondPlace": {
+        "title": "2 vieta",
+        "description": "Savaitgalio kelionė",
+        "value": "300€ vertės"
+      },
+      "thirdPlace": {
+        "title": "3 vieta",
+        "description": "Kelionių kuponas",
+        "value": "150€ vertės"
+      }
+    } 
+  },
+  "featuredTours": {
+      "title": "Populiariausi kelionių paketai",
+      "subtitle": "Atraskite geriausius kelionių pasiūlymus ir planuokite savo svajonių kelionę su mumis",
+      "moreInfo": "Plačiau",
+      "bookNow": "Užsakyti",
+      "viewAllTours": "Peržiūrėti visus kelionių paketus",
+      "bookNowButton": "Užsakyti dabar",
+      "person": "asmeniui",
+      "viewFullDescription": "Peržiūrėti pilną kelionės aprašymą",
+      "description": "Aprašymas",
+      "aprašymas": "Aprašymas",
+      "duration": "Trukmė:",
+      "days": "dienų",
+      "perPerson": "asmeniui",
+      "close": "Uždaryti",
+      "tourDuration": "Kelionės trukmė: ",
+      "tourDurationText": "Kelionės trukmė:",
+      "accordingToPackage": "(pagal paketą)",
+      "bookingForm": {
+        "title": "Kelionės užsakymas",
+        "fullName": "Vardas ir pavardė *",
+        "phoneNumber": "Telefono numeris *",
+        "emailAddress": "El. pašto adresas *",
+        "departureDate": "Išvykimo data *",
+        "numberOfPeople": "Žmonių skaičius *",
+        "submitButton": "Patvirtinti užsakymą",
+                 "minLetters": "Minimalus raidžių skaičius: 3",
+         "minDigits": "Minimalus skaitmenų skaičius: 6",
+         "validEmail": "Įveskite teisingą el. pašto adresą",
+         "minPeople": "Min: 1 asmuo",
+         "validation": {
+           "fillAllFields": "Prašome užpildyti visus laukus",
+           "nameMinLength": "Vardas turi būti bent 3 raidės",
+           "nameOnlyLetters": "Vardas gali turėti tik raides ir tarpus",
+           "emailRequired": "El. pašto adresas yra būtinas",
+           "emailInvalid": "Įveskite teisingą el. pašto adresą",
+           "phoneMinLength": "Telefono numeris turi būti bent 6 skaitmenys",
+           "departureDateInvalid": "Išvykimo data negali būti šiandien ar ankstesnė",
+           "generalError": "Atsiprašome, įvyko klaida. Bandykite dar kartą."
+         }
+       },
+       "paymentSection": {
+         "bookingConfirmed": "Užsakymas patvirtintas!",
+         "nowCanPay": "Dabar galite atlikti mokėjimą",
+         "orderInfo": "Užsakymo informacija",
+         "tour": "Kelionė:",
+         "numberOfPeople": "Žmonių skaičius:",
+         "totalAmount": "Bendra suma:",
+         "paymentInfo": "Mokėjimo informacija:",
+         "totalAmountLabel": "Bendra suma:",
+         "fullName": "Vardas ir pavardė *",
+         "email": "El. paštas *",
+         "submitbutton": "Mokėti su Paysera",
+         "paymentSelection": "Mokėjimo pasirinkimas",
+         "processing": "Apdorojama...",
+         "submitting": "Siunčiama...",
+         "paymentUrlError": "Nepavyko gauti mokėjimo URL",
+         "payAmount": "Mokėti"
+       },
+       "common": {
+    "loading": "Kraunama...",
+    "error": "Klaida",
+    "success": "Sėkmė",
+    "cancel": "Atšaukti",
+    "save": "Išsaugoti",
+    "delete": "Ištrinti",
+    "edit": "Redaguoti",
+    "back": "Atgal",
+    "next": "Kitas",
+    "previous": "Ankstesnis",
+    "search": "Ieškoti",
+    "submit": "Pateikti",
+    "close": "Uždaryti",
+    "page": "Puslapis",
+    "selectDate": "Pasirinkite datą",
+    "september": "Rugsėjis",
+    "october": "Spalis",
+    "november": "Lapkritis",
+    "december": "Gruodis",
+    "january": "Sausis",
+    "february": "Vasaris",
+    "march": "Kovas",
+    "april": "Balandis",
+    "may": "Gegužė",
+    "june": "Birželis",
+    "july": "Liepa",
+    "august": "Rugpjūtis",
+    "pr": "Pr",
+    "an": "An",
+    "Tr": "Tr",
+    "Kt": "Kt",
+    "Pn": "Pn",
+    "St": "Št",
+    "Sk": "Sk"
+  }
+     }
+}
+
