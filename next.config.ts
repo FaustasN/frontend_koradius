@@ -2,26 +2,24 @@ import type { NextConfig } from "next";
 import type { RemotePattern } from "next/dist/shared/lib/image-config";
 import createNextIntlPlugin from "next-intl/plugin";
 
-const backendImagePattern: RemotePattern | null = (() => {
+const backendImagePatterns: RemotePattern[] = (() => {
   const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
-  if (!backendUrl) return null;
+  if (!backendUrl) return [];
 
   try {
     const url = new URL(backendUrl);
-    const protocol = url.protocol.replace(":", "");
-
-    if (protocol !== "http" && protocol !== "https") {
-      return null;
-    }
-
-    return {
-      protocol: protocol as "http" | "https",
+    const commonPattern = {
       hostname: url.hostname,
       port: url.port || undefined,
       pathname: "/uploads/**",
     };
+
+    return [
+      { protocol: "http", ...commonPattern },
+      { protocol: "https", ...commonPattern },
+    ];
   } catch {
-    return null;
+    return [];
   }
 })();
 
@@ -29,7 +27,7 @@ const nextConfig: NextConfig = {
   images: {
     dangerouslyAllowLocalIP: true,
     remotePatterns: [
-      ...(backendImagePattern ? [backendImagePattern] : []),
+      ...backendImagePatterns,
       {
         protocol: "http",
         hostname: "localhost",
