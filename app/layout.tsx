@@ -12,6 +12,10 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 });
 
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, '') ||
+  'http://localhost:3000';
+
 
 
 export default function RootLayout({
@@ -21,6 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
+      lang="lt"
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
@@ -28,6 +33,7 @@ export default function RootLayout({
     </html>
   );
 }export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: 'Koradius Travel',
   description: 'Koradius Travel is a travel agency that offers tours to various destinations.',
 };

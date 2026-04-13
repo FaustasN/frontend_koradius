@@ -4,7 +4,7 @@ import SearchClient from './SearchClient';
 export const metadata: Metadata = {
   title: 'Koradius Travel | Novaturas Search',
   description:
-    'In this page you can search through flight deals of our partners Novaturas.'
+    'Browse flight deals from our partner Novaturas and discover convenient travel options for your next trip.'
 };
 
 export default function SearchPage() {

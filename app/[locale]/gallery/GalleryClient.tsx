@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { X, ChevronLeft, ChevronRight, MapPin, Camera, Heart } from 'lucide-react';
 import { galleryApi, transformGalleryItem } from '@/app/services/apiService';
 import { useTranslations } from "next-intl";
+import Image from 'next/image';
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react'
 import { useRef } from 'react'
@@ -21,7 +22,6 @@ type GalleryImage = {
 
 export default function GalleryClient() {
   const t = useTranslations("gallery");
-    const tl = useRef<GSAPTimeline | null>(null)
   const container = useRef<HTMLDivElement>(null)
 
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
@@ -284,7 +284,9 @@ export default function GalleryClient() {
                 }`}
                 onClick={() => openLightbox(image.id)}
               >
-                <img
+                <Image
+                  width={1000}
+                  height={1000}
                   src={image.src}
                   alt={image.title}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
@@ -353,7 +355,9 @@ export default function GalleryClient() {
             </button>
 
             <div className="max-w-6xl max-h-full flex flex-col">
-              <img
+              <Image
+                width={1000}
+                height={1000}
                 src={selectedImageData.src}
                 alt={selectedImageData.title}
                 className="max-w-full max-h-[80vh] object-contain rounded-lg"

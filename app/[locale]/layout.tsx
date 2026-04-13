@@ -36,7 +36,7 @@ export default async function LocaleLayout({
 }
 export const metadata: Metadata = {
   title: 'Koradius Travel | Home',
-  description: 'Main page of the Koradius travel agency.',
+  description: 'Koradius Travel is a travel agency offering carefully selected leisure and sightseeing trips. Discover popular travel packages, attractive prices, and convenient online booking.',
 };
 
 export function generateStaticParams() {

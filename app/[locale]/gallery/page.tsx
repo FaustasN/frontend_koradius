@@ -4,7 +4,7 @@ import GalleryClient from './GalleryClient';
 export const metadata: Metadata = {
   title: 'Koradius Travel | Gallery',
   description:
-    'In this page you can see trip photos that our customer sent to us.'
+    'View trip photos shared by our customers and explore memorable moments from their travels.'
 };
 
 export default function GalleryPage() {

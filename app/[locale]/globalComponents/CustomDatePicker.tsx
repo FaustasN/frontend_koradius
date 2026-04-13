@@ -10,6 +10,14 @@ interface CustomDatePickerProps {
   error?: string;
 }
 
+const parseLocalYMD = (val: string): Date | null => {
+  const isYMD = /^\d{4}-\d{2}-\d{2}$/.test(val);
+  if (!isYMD) return null;
+  const [y, m, d] = val.split('-').map(Number);
+  const dt = new Date(y, (m || 1) - 1, d || 1);
+  return isNaN(dt.getTime()) ? null : dt;
+};
+
 const CustomDatePicker: React.FC<CustomDatePickerProps> = ({
   value,
   onChange,
@@ -18,24 +26,16 @@ const CustomDatePicker: React.FC<CustomDatePickerProps> = ({
   className = "",
   error
 }) => {
+  const getDateFromValue = (val: string): Date | null => {
+    if (!val) return null;
+    const parsed = parseLocalYMD(val) || new Date(val);
+    return isNaN(parsed.getTime()) ? null : parsed;
+  };
 
   const [isOpen, setIsOpen] = useState(false);
-  const [currentMonth, setCurrentMonth] = useState(new Date());
-  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+  const [currentMonth, setCurrentMonth] = useState<Date>(() => getDateFromValue(value) || new Date());
   const dropdownRef = useRef<HTMLDivElement>(null);
-
-
-
-  // Initialize selected date from value
-  useEffect(() => {
-    if (value) {
-      const parsed = parseLocalYMD(value) || new Date(value);
-      if (!isNaN(parsed.getTime())) {
-        setSelectedDate(parsed);
-        setCurrentMonth(parsed);
-      }
-    }
-  }, [value]);
+  const selectedDate = getDateFromValue(value);
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -67,14 +67,6 @@ const CustomDatePicker: React.FC<CustomDatePickerProps> = ({
     return `${year}-${month}-${day}`;
   };
 
-  function parseLocalYMD(val: string): Date | null {
-    const isYMD = /^\d{4}-\d{2}-\d{2}$/.test(val);
-    if (!isYMD) return null;
-    const [y, m, d] = val.split('-').map(Number);
-    const dt = new Date(y, (m || 1) - 1, d || 1);
-    return isNaN(dt.getTime()) ? null : dt;
-  }
-
   const getDaysInMonth = (date: Date): number => {
     return new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
   };
@@ -86,10 +78,11 @@ const CustomDatePicker: React.FC<CustomDatePickerProps> = ({
   const isDateDisabled = (date: Date): boolean => {
     const today = new Date();
     today.setHours(0, 0, 0, 0);
-    date.setHours(0, 0, 0, 0);
+    const normalizedDate = new Date(date);
+    normalizedDate.setHours(0, 0, 0, 0);
     
     // Always disable today
-    if (date.getTime() === today.getTime()) {
+    if (normalizedDate.getTime() === today.getTime()) {
       return true;
     }
     
@@ -97,11 +90,11 @@ const CustomDatePicker: React.FC<CustomDatePickerProps> = ({
     if (minDate) {
       const minDateObj = parseLocalYMD(minDate) || new Date(minDate);
       minDateObj.setHours(0, 0, 0, 0);
-      return date < minDateObj;
+      return normalizedDate < minDateObj;
     }
     
     // Default: disable past dates (including today)
-    return date <= today;
+    return normalizedDate <= today;
   };
 
   const isToday = (date: Date): boolean => {
@@ -114,7 +107,6 @@ const CustomDatePicker: React.FC<CustomDatePickerProps> = ({
   };
 
   const handleDateSelect = (date: Date) => {
-    setSelectedDate(date);
     onChange(formatInputValue(date));
     setIsOpen(false);
   };
@@ -187,7 +179,12 @@ const CustomDatePicker: React.FC<CustomDatePickerProps> = ({
       {/* Input Field */}
       <button
         type="button"
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => {
+          if (!isOpen) {
+            setCurrentMonth(selectedDate || new Date());
+          }
+          setIsOpen(!isOpen);
+        }}
         className={`
           w-full px-4 py-3 text-left bg-white border rounded-lg
           focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent

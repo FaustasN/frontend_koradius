@@ -4,6 +4,7 @@ import { useMemo, useRef } from "react";
 import { useRouter } from "@/i18n/navigation";
 import { Award, Globe, Heart, Shield, Clock } from "lucide-react";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -272,10 +273,12 @@ export default function AboutClient() {
 
           <div className="storyImageAni relative">
             <div className="relative h-[320px] md:h-[420px] w-full overflow-hidden rounded-2xl shadow-2xl">
-              <img
+              <Image
                 src="https://images.pexels.com/photos/1371360/pexels-photo-1371360.jpeg?auto=compress&cs=tinysrgb&w=1200"
                 alt="Kelionių agentūra"
-                className="w-full h-full object-cover"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
               />
             </div>
 

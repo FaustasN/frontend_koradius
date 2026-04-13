@@ -26,10 +26,6 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  useEffect(() => {
-    setIsMenuOpen(false);
-  }, [pathname]);
-
   const navItems = [
     {href: '/', label: t('home')},
     {href: '/search', label: t('searchTours')},
@@ -55,6 +51,10 @@ export default function Header() {
         : 'text-gray-800 hover:bg-teal-50 hover:text-teal-600'
     }`;
 
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -63,7 +63,11 @@ export default function Header() {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between gap-3">
-          <Link href="/" className="flex items-center space-x-3 group min-w-0">
+          <Link
+            href="/"
+            className="flex items-center space-x-3 group min-w-0"
+            onClick={closeMenu}
+          >
             <Image
               src={logo}
               alt="Koradius Travel Logo"
@@ -87,6 +91,7 @@ export default function Header() {
                 key={item.href}
                 href={item.href}
                 className={desktopLinkClass(item.href)}
+                onClick={closeMenu}
               >
                 {item.label}
               </Link>
@@ -128,6 +133,7 @@ export default function Header() {
                 key={item.href}
                 href={item.href}
                 className={mobileLinkClass(item.href)}
+                onClick={closeMenu}
               >
                 {item.label}
               </Link>

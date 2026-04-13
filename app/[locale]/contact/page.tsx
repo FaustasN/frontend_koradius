@@ -4,9 +4,9 @@ import ContactClient from './ContactClient';
 export const metadata: Metadata = {
   title: 'Koradius Travel | Contact us',
   description:
-    'In this page you can leave any relevant questions, our team will be glad to help you'
+    'Leave your questions and contact our team for help with trips, bookings, and travel information.'
 };
 
 export default function ContactPage() {
   return <ContactClient/>;
-}
+} 

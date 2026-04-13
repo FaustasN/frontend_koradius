@@ -2,6 +2,7 @@
 
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   Clock,
   Star,
@@ -365,9 +366,11 @@ const FeaturedToursWithPayment = () => {
               >
                 <div className="relative h-48 bg-gray-200 flex-shrink-0">
                   {tour.image && (
-                    <img
+                    <Image
                       src={tour.image}
                       alt={tour.title}
+                      width={1000}
+                      height={1000}
                       className="w-full h-full object-cover"
                     />
                   )}
@@ -511,9 +514,11 @@ const FeaturedToursWithPayment = () => {
 
               <div className="relative h-64 bg-gray-200 rounded-lg mb-6">
                 {tourDetails.image && (
-                  <img
+                  <Image
                     src={tourDetails.image}
                     alt={tourDetails.title}
+                    width={1000}
+                    height={1000}
                     className="w-full h-full object-cover rounded-lg"
                   />
                 )}

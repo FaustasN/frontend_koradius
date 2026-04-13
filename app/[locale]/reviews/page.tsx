@@ -4,7 +4,7 @@ import ReviewsClient from './ReviewsClient';
 export const metadata: Metadata = {
   title: 'Koradius Travel | Reviews',
   description:
-    'In this page you can share expierence about our services, trips.'
+    'Read customer reviews about our trips and services, and share your own experience with Koradius Travel.'
 };
 
 export default function ReviewPage() {
