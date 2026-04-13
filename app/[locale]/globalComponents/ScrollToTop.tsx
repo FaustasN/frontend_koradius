@@ -5,6 +5,7 @@ import {ChevronUp} from 'lucide-react';
 
 const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [isBodyScrollLocked, setIsBodyScrollLocked] = useState(false);
 
   useEffect(() => {
     let ticking = false;
@@ -28,6 +29,22 @@ const ScrollToTop = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const updateBodyLockState = () => {
+      setIsBodyScrollLocked(document.body.style.overflow === 'hidden');
+    };
+
+    updateBodyLockState();
+
+    const observer = new MutationObserver(updateBodyLockState);
+    observer.observe(document.body, {
+      attributes: true,
+      attributeFilter: ['style', 'class'],
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -39,7 +56,7 @@ const ScrollToTop = () => {
     <button
       onClick={scrollToTop}
       className={`fixed bottom-6 right-6 z-50 inline-flex h-12 w-12 items-center justify-center rounded-full bg-teal-600 text-white shadow-lg transition-all duration-500 ease-out hover:-translate-y-0.5 hover:bg-teal-700 hover:shadow-xl ${
-        isVisible
+        isVisible && !isBodyScrollLocked
           ? 'translate-y-0 opacity-100 scale-100 pointer-events-auto'
           : 'translate-y-3 opacity-0 scale-95 pointer-events-none'
       }`}

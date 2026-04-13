@@ -377,7 +377,7 @@ export default function ReviewsPage() {
       <div className="container mx-auto px-4 py-8">
         <div className="firstAni text-center mb-16">
           <div className="flex items-center justify-center space-x-2 mb-4">
-            <Quote className="text-teal-500" size={32} />
+         
             <h1 className="text-4xl md:text-5xl font-bold text-gray-800">
               {t("title.firstPart")}{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-teal-600">
@@ -397,7 +397,7 @@ export default function ReviewsPage() {
           >
             <div
               ref={modalContentRef}
-              className="bg-white rounded-3xl shadow-2xl max-w-4xl w-full max-h-[95vh] overflow-hidden"
+              className="bg-white rounded-3xl shadow-2xl max-w-4xl w-full max-h-[95vh] overflow-y-auto overscroll-contain"
             >
               <div className="flex items-center justify-between p-6 border-b border-gray-200">
                 <div className="flex items-center space-x-3">

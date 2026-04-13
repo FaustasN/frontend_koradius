@@ -403,7 +403,7 @@ const FeaturedToursWithPayment = () => {
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-between mt-auto flex-shrink-0">
+                  <div className="flex items-center justify-between gap-3 mt-auto flex-shrink-0">
                     <div className="flex flex-col items-start">
                       <div className="flex items-center space-x-2">
                         <span className="text-lg font-bold text-green-600">€{tour.price}</span>
@@ -416,20 +416,20 @@ const FeaturedToursWithPayment = () => {
                       <span className="text-gray-500 text-xs">/ {t("person")}</span>
                     </div>
 
-                    <div className="flex space-x-2">
+                    <div className="grid grid-cols-2 gap-2 w-full sm:w-auto sm:flex sm:flex-row">
                       <button
                         onClick={() => openTourDetails(tour)}
-                        className="px-3 py-2 bg-white text-teal-600 border-2 border-teal-600 rounded-full font-bold hover:bg-teal-50 transition-colors flex items-center text-sm"
+                        className="min-w-0 px-2.5 py-2 bg-white text-teal-600 border-2 border-teal-600 rounded-full font-bold hover:bg-teal-50 transition-colors flex items-center justify-center text-xs sm:text-sm text-center leading-tight whitespace-normal"
                       >
                         {t("moreInfo")}
                       </button>
 
                       <button
                         onClick={() => openBookingForm(tour)}
-                        className="px-3 py-2 bg-teal-600 text-white rounded-full font-bold hover:bg-teal-700 transition-colors flex items-center text-sm"
+                        className="min-w-0 px-2.5 py-2 bg-teal-600 text-white rounded-full font-bold hover:bg-teal-700 transition-colors flex items-center justify-center text-xs sm:text-sm text-center leading-tight whitespace-normal"
                       >
-                        <CreditCard className="mr-1 h-4 w-4" />
-                        {t("bookNow")}
+                        <CreditCard className="mr-1 h-4 w-4 flex-shrink-0 hidden sm:block" />
+                        <span className="break-words">{t("bookNow")}</span>
                       </button>
                     </div>
                   </div>

@@ -400,7 +400,7 @@ export default function ContactClient() {
       )}
 
       <div className="container mx-auto px-4 py-8">
-        <div className="firstAni text-center mb-12">
+        <div className="firstAni opacity-0 text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
             {t("hero.title.firstPart")}{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-teal-600">
@@ -413,7 +413,7 @@ export default function ContactClient() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-          <div className="secondAni bg-gradient-to-r from-green-500 to-green-600 rounded-2xl p-6 text-white text-center hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 btn-hover-smooth">
+          <div className="secondAni opacity-0 bg-gradient-to-r from-green-500 to-green-600 rounded-2xl p-6 text-white text-center hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 btn-hover-smooth">
             <Phone size={48} className="mx-auto mb-4" />
             <h3 className="text-xl font-bold mb-2">{t("quickContact.phone.title")}</h3>
             <p className="mb-4 opacity-90">{t("quickContact.phone.description")}</p>
@@ -425,7 +425,7 @@ export default function ContactClient() {
             </a>
           </div>
 
-          <div className="secondAni bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl p-6 text-white text-center hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 btn-hover-smooth">
+          <div className="secondAni opacity-0 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl p-6 text-white text-center hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 btn-hover-smooth">
             <Mail size={48} className="mx-auto mb-4" />
             <h3 className="text-xl font-bold mb-2">{t("quickContact.email.title")}</h3>
             <p className="mb-4 opacity-90">{t("quickContact.email.description")}</p>
@@ -439,7 +439,7 @@ export default function ContactClient() {
         </div>
 
         <div className="mainContentSection grid grid-cols-1 xl:grid-cols-2 gap-8 mb-12">
-          <div className="thirdAni bg-white rounded-2xl shadow-lg p-8">
+          <div className="thirdAni opacity-0 bg-white rounded-2xl shadow-lg p-8">
             <h2 className="text-2xl font-bold text-gray-800 mb-8">{t("form.title")}</h2>
 
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -622,7 +622,7 @@ export default function ContactClient() {
             </form>
           </div>
 
-          <div className="thirdAni space-y-6">
+          <div className="thirdAni opacity-0 space-y-6">
             <div className="bg-white rounded-2xl shadow-lg p-6">
               <h2 className="text-xl font-bold text-gray-800 mb-6">{t("contactInfo.title")}</h2>
 
@@ -682,7 +682,7 @@ export default function ContactClient() {
         </div>
 
         <div className="bottomSections">
-          <div className="fourthAni mb-12">
+          <div className="fourthAni  mb-12">
             <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
               <div className="p-6 border-b border-gray-100">
                 <h2 className="text-2xl font-bold text-gray-800 mb-2">
@@ -706,7 +706,7 @@ export default function ContactClient() {
             </div>
           </div>
 
-          <div className="fourthAni bg-white rounded-3xl shadow-lg p-8">
+          <div className=" bg-white rounded-3xl shadow-lg p-8">
             <h2 className="text-3xl font-bold text-gray-800 text-center mb-8">
               {t("contactInfo.faq.title1")}{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-teal-600">
