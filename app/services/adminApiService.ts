@@ -1,12 +1,5 @@
 import { http } from './httpclient';
 
-// API service for Koradius backend
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL;
-
-if (!API_BASE_URL) {
-  throw new Error('API_BASE_URL environment variable is not set');
-}
-
 // Get auth token from cookie
 const getAuthToken = (): string | null => {
   const nameEQ = 'adminToken=';
@@ -165,6 +158,30 @@ export interface TravelPacketPayload {
   available_spots: number;
   departure?: string;
   is_active?: boolean;
+}
+export interface Payment {
+  id: number;
+  order_id: string;
+  travel_packet_id: number | null;
+  travel_packet_title: string | null;
+  amount: number;
+  currency: string;
+  description: string | null;
+  status: 'pending' | 'paid' | 'failed' | 'cancelled' | 'refunded';
+  paysera_status: number | null;
+  is_test: boolean;
+  payment_method: string | null;
+  pay_amount: number | null;
+  pay_currency: string | null;
+  customer_email_encrypted: string | null;
+  customer_name_encrypted: string | null;
+  customer_phone_encrypted: string | null;
+  product_info_encrypted: string | null;
+  callback_raw: unknown;
+  paid_at: string | null;
+  failed_at: string | null;
+  created_at: string;
+  updated_at: string;
 }
 
 type LogFilterValue =
@@ -408,7 +425,14 @@ export const travelPacketsAPI = {
     });
   },
 };
-
+export const paymentsAPI = {
+  getAll: async (): Promise<Payment[]> => {
+    return http<Payment[]>('/admin/payments', {
+      method: 'GET',
+      headers: getAuthHeaders(),
+    });
+  },
+};
 // Server Monitoring API
 export const serverAPI = {
   getServerStatus: async (): Promise<ServerStatus> => {

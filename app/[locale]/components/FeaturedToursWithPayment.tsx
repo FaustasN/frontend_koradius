@@ -18,7 +18,7 @@ import { useTranslations } from "next-intl";
 import { gsap } from "gsap";
 import { travelPacketsApi, transformTravelPacket } from "../../services/apiService";
 import CustomDatePicker from "../globalComponents/CustomDatePicker";
-
+import { paymentApi } from "@/app/services/paymentApi";
 type TravelPacket = {
   id: number;
   title: string;
@@ -291,7 +291,14 @@ const FeaturedToursWithPayment = () => {
 
   const handleBookingSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
+  
+    resetErrors();
+  
+    if (!selectedTour) {
+      setFormError(t("bookingForm.validation.generalError"));
+      return;
+    }
+  
     if (
       !bookingForm.name.trim() ||
       !bookingForm.phone.trim() ||
@@ -302,23 +309,38 @@ const FeaturedToursWithPayment = () => {
       setFormError(t("bookingForm.validation.fillAllFields"));
       return;
     }
-
+  
     const isNameValid = validateName(bookingForm.name);
     const isPhoneValid = validatePhone(bookingForm.phone);
     const isEmailValid = validateEmail(bookingForm.email);
     const isDateValid = validateDates();
-
+  
     if (!isNameValid || !isPhoneValid || !isEmailValid || !isDateValid) {
       return;
     }
-
+  
     setFormError("");
     setIsSubmitting(true);
-
+  
     try {
-      setBookingConfirmed(true);
-    } catch {
-      alert(t("bookingForm.validation.generalError"));
+      const response = await paymentApi.createPayment({
+        travelPacketId: selectedTour.id,
+        name: bookingForm.name.trim(),
+        phone: bookingForm.phone.trim(),
+        email: bookingForm.email.trim(),
+        departureDate: bookingForm.departureDate,
+        numberOfPeople: bookingForm.numberOfPeople,
+      });
+  
+      window.location.href = response.paymentUrl;
+    } catch (error) {
+      console.error("handleBookingSubmit error:", error);
+  
+      if (error instanceof Error) {
+        setFormError(error.message);
+      } else {
+        setFormError(t("bookingForm.validation.generalError"));
+      }
     } finally {
       setIsSubmitting(false);
     }
