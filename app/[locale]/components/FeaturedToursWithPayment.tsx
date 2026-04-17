@@ -331,7 +331,7 @@ const FeaturedToursWithPayment = () => {
         departureDate: bookingForm.departureDate,
         numberOfPeople: bookingForm.numberOfPeople,
       });
-  
+
       window.location.href = response.paymentUrl;
     } catch (error) {
       console.error("handleBookingSubmit error:", error);
@@ -769,8 +769,8 @@ const FeaturedToursWithPayment = () => {
                     className="w-full py-3 bg-teal-600 text-white rounded-full font-bold hover:bg-teal-700 transition-colors disabled:opacity-50"
                   >
                     {isSubmitting
-                      ? t("bookingForm.submitting")
-                      : t("bookingForm.submitButton")}
+                      ? t("paymentSection.submitting")
+                      : t("paymentSection.submitbutton")}
                   </button>
                 </form>
               ) : (

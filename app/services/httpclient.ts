@@ -1,4 +1,5 @@
 const BASE = process.env.NEXT_PUBLIC_API_URL;
+
 if (!BASE) {
   throw new Error('NEXT_PUBLIC_API_URL is not set');
 }
@@ -21,9 +22,15 @@ const hasMessage = (value: unknown): value is ErrorWithMessage => {
   );
 };
 
-export async function http(path: string, opts: HttpOptions & { returnRaw: true }): Promise<Response>;
+export async function http(
+  path: string,
+  opts: HttpOptions & { returnRaw: true }
+): Promise<Response>;
 export async function http<T>(path: string, opts?: HttpOptions): Promise<T>;
-export async function http<T>(path: string, opts: HttpOptions = {}): Promise<T | Response> {
+export async function http<T>(
+  path: string,
+  opts: HttpOptions = {}
+): Promise<T | Response> {
   const controller = new AbortController();
   const id = setTimeout(() => controller.abort(), opts.timeoutMs ?? 15000);
 
@@ -40,6 +47,7 @@ export async function http<T>(path: string, opts: HttpOptions = {}): Promise<T |
     const res = await fetch(`${BASE}${path}`, {
       ...opts,
       headers,
+      credentials: 'include',
       signal: controller.signal
     });
 

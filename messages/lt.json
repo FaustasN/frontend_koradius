@@ -596,10 +596,12 @@
          }
        },
        "paymentSection": {
-         "bookingConfirmed": "Užsakymas patvirtintas!",
-         "nowCanPay": "Dabar galite atlikti mokėjimą",
-         "orderInfo": "Užsakymo informacija",
+         "bookingConfirmed": "Mokėjimas inicijuotas sėkmingai!",
+         "bookingConfirmed2": "Ačiū. Jūsų mokėjimas buvo apdorotas. Užsakymo būseną galutinai patvirtina sistema.",
+         "orderInfo": "Užsakymo numeris:",
          "tour": "Kelionė:",
+         "bookingCanceled": "Mokėjimas nutrauktas",
+         "bookingCanceled2": "Mokėjimas nebuvo užbaigtas. Galite pabandyti dar kartą.",
          "numberOfPeople": "Žmonių skaičius:",
          "totalAmount": "Bendra suma:",
          "paymentInfo": "Mokėjimo informacija:",

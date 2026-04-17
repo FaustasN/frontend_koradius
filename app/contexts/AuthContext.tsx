@@ -15,7 +15,7 @@ interface AuthContextType {
   isAuthenticated: boolean;
   isLoading: boolean;
   login: (username: string, password: string) => Promise<boolean>;
-  logout: () => void;
+  logout: () => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -34,41 +34,6 @@ interface AuthProviderProps {
   children: ReactNode;
 }
 
-const isValidTokenFormat = (token: string): boolean => {
-  try {
-    const parts = token.split('.');
-    if (parts.length !== 3) return false;
-
-    const payload = JSON.parse(atob(parts[1]));
-    return payload && typeof payload === 'object';
-  } catch {
-    return false;
-  }
-};
-
-const setCookie = (name: string, value: string, days: number) => {
-  const expires = new Date();
-  expires.setTime(expires.getTime() + days * 24 * 60 * 60 * 1000);
-  document.cookie = `${name}=${value};expires=${expires.toUTCString()};path=/;SameSite=Strict`;
-};
-
-const getCookie = (name: string): string | null => {
-  const nameEQ = `${name}=`;
-  const cookies = document.cookie.split(';');
-
-  for (const cookie of cookies) {
-    let c = cookie;
-    while (c.startsWith(' ')) c = c.substring(1);
-    if (c.startsWith(nameEQ)) return c.substring(nameEQ.length);
-  }
-
-  return null;
-};
-
-const deleteCookie = (name: string) => {
-  document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;SameSite=Strict`;
-};
-
 export function AuthProvider({ children }: AuthProviderProps) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -76,17 +41,9 @@ export function AuthProvider({ children }: AuthProviderProps) {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const token = getCookie('adminToken');
-
-        if (!token || !isValidTokenFormat(token)) {
-          setIsAuthenticated(false);
-          return;
-        }
-
         await authAPI.validate();
         setIsAuthenticated(true);
       } catch {
-        deleteCookie('adminToken');
         setIsAuthenticated(false);
       } finally {
         setIsLoading(false);
@@ -98,24 +55,23 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
   const login = useCallback(async (username: string, password: string) => {
     try {
-      const data = await authAPI.login(username, password);
-      const token = data.token;
-
-      if (!token || !isValidTokenFormat(token)) {
-        return false;
-      }
-
-      setCookie('adminToken', token, 1);
+      await authAPI.login(username, password);
       setIsAuthenticated(true);
       return true;
     } catch {
+      setIsAuthenticated(false);
       return false;
     }
   }, []);
 
-  const logout = useCallback(() => {
-    deleteCookie('adminToken');
-    setIsAuthenticated(false);
+  const logout = useCallback(async () => {
+    try {
+      await authAPI.logout();
+    } catch {
+      // net jei logout request nepavyko, lokaliai sesiją laikom baigta
+    } finally {
+      setIsAuthenticated(false);
+    }
   }, []);
 
   const value = useMemo(

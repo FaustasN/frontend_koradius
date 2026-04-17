@@ -217,26 +217,24 @@ export default function AdminPaymentsPage() {
                       )}
                     </div>
 
-                    {(payment.customer_email_encrypted ||
-                      payment.customer_name_encrypted ||
-                      payment.customer_phone_encrypted) && (
-                      <div className="mt-4 rounded-2xl border border-gray-200 bg-gray-50 p-4">
+                    {(payment.customer_email || payment.customer_name ||payment.customer_phone) && (
+              <div className="mt-4 rounded-2xl border border-gray-200 bg-gray-50 p-4">
                         <p className="mb-2 text-sm font-medium text-gray-800">
-                          Kliento informacija
-                        </p>
+                                 Kliento informacija
+                                   </p>
 
-                        <div className="space-y-1 text-sm text-gray-600">
-                          {payment.customer_name_encrypted && (
-                            <p>Vardas: {payment.customer_name_encrypted}</p>
-                          )}
-                          {payment.customer_email_encrypted && (
-                            <p>El. paštas: {payment.customer_email_encrypted}</p>
-                          )}
-                          {payment.customer_phone_encrypted && (
-                            <p>Telefonas: {payment.customer_phone_encrypted}</p>
-                          )}
-                        </div>
-                      </div>
+                           <div className="space-y-1 text-sm text-gray-600">
+                            {payment.customer_name && (
+                            <p>Vardas: {payment.customer_name}</p>
+                              )}
+                             {payment.customer_email && (
+                                 <p>El. paštas: {payment.customer_email}</p>
+                                 )}
+                                    {payment.customer_phone && (
+                           <p>Telefonas: {payment.customer_phone}</p>
+                              )}
+                            </div>
+                       </div>
                     )}
                   </div>
 

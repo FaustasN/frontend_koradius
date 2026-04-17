@@ -595,10 +595,12 @@
       }
     },
     "paymentSection": {
-      "bookingConfirmed": "Booking Confirmed!",
-      "nowCanPay": "Now you can make the payment",
-      "orderInfo": "Order Information",
+      "bookingConfirmed": "Payment has been initiated successfully!",
+      "bookingConfirmed2": "Thank you. Your payment has been processed. The order status will be confirmed by the system.",
+      "orderInfo": "Order number:",
       "tour": "Tour:",
+      "bookingCanceled": "Payment was canceled",
+      "bookingCanceled2": "The payment was not completed. You can try again.",
       "numberOfPeople": "Number of People:",
       "totalAmount": "Total Amount:",
       "paymentInfo": "Payment Information:",
