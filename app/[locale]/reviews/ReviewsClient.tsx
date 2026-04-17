@@ -311,72 +311,72 @@ export default function ReviewsPage() {
   return (
     <div ref={container} className="min-h-screen bg-gray-50 pt-24">
       {showSuccessNotification && (
-  <div className="fixed top-24 right-4 z-[80] animate-slide-in-right pointer-events-none">
-    <div className="bg-white rounded-2xl shadow-2xl border-l-4 border-green-500 p-6 max-w-sm transform transition-all duration-500 ease-out pointer-events-auto">
-      <div className="flex items-start space-x-4">
-        <div className="flex-shrink-0">
-          <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-            <CheckCircle className="text-green-600" size={24} />
+        <div className="fixed top-24 right-4 z-[80] animate-slide-in-right pointer-events-none">
+          <div className="bg-white rounded-2xl shadow-2xl border-l-4 border-green-500 p-6 max-w-sm transform transition-all duration-500 ease-out pointer-events-auto">
+            <div className="flex items-start space-x-4">
+              <div className="flex-shrink-0">
+                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                  <CheckCircle className="text-green-600" size={24} />
+                </div>
+              </div>
+              <div className="flex-1">
+                <h3 className="text-lg font-bold text-gray-800 mb-1">
+                  {t("notifications.success")}
+                </h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  {t("notifications.successDescription")}
+                </p>
+              </div>
+              <button
+                onClick={() => setShowSuccessNotification(false)}
+                className="flex-shrink-0 text-gray-400 hover:text-gray-600 transition-colors duration-200"
+              >
+                <X size={20} />
+              </button>
+            </div>
+
+            <div className="mt-4 w-full bg-gray-200 rounded-full h-1">
+              <div className="bg-green-500 h-1 rounded-full animate-progress-bar"></div>
+            </div>
           </div>
         </div>
-        <div className="flex-1">
-          <h3 className="text-lg font-bold text-gray-800 mb-1">
-            {t("notifications.success")}
-          </h3>
-          <p className="text-gray-600 text-sm leading-relaxed">
-            {t("notifications.successDescription")}
-          </p>
-        </div>
-        <button
-          onClick={() => setShowSuccessNotification(false)}
-          className="flex-shrink-0 text-gray-400 hover:text-gray-600 transition-colors duration-200"
-        >
-          <X size={20} />
-        </button>
-      </div>
+      )}
 
-      <div className="mt-4 w-full bg-gray-200 rounded-full h-1">
-        <div className="bg-green-500 h-1 rounded-full animate-progress-bar"></div>
-      </div>
-    </div>
-  </div>
-)}
+      {showErrorNotification && (
+        <div className="fixed top-24 right-4 z-[80] animate-slide-in-right pointer-events-none">
+          <div className="bg-white rounded-2xl shadow-2xl border-l-4 border-red-500 p-6 max-w-sm transform transition-all duration-500 ease-out pointer-events-auto">
+            <div className="flex items-start space-x-4">
+              <div className="flex-shrink-0">
+                <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
+                  <X className="text-red-600" size={24} />
+                </div>
+              </div>
+              <div className="flex-1">
+                <h3 className="text-lg font-bold text-gray-800 mb-1">
+                  {t("notifications.error")}
+                </h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  {errorMessage}
+                </p>
+              </div>
+              <button
+                onClick={() => setShowErrorNotification(false)}
+                className="flex-shrink-0 text-gray-400 hover:text-gray-600 transition-colors duration-200"
+              >
+                <X size={20} />
+              </button>
+            </div>
 
-{showErrorNotification && (
-  <div className="fixed top-24 right-4 z-[80] animate-slide-in-right pointer-events-none">
-    <div className="bg-white rounded-2xl shadow-2xl border-l-4 border-red-500 p-6 max-w-sm transform transition-all duration-500 ease-out pointer-events-auto">
-      <div className="flex items-start space-x-4">
-        <div className="flex-shrink-0">
-          <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
-            <X className="text-red-600" size={24} />
+            <div className="mt-4 w-full bg-gray-200 rounded-full h-1">
+              <div className="bg-red-500 h-1 rounded-full animate-progress-bar"></div>
+            </div>
           </div>
         </div>
-        <div className="flex-1">
-          <h3 className="text-lg font-bold text-gray-800 mb-1">
-            {t("notifications.error")}
-          </h3>
-          <p className="text-gray-600 text-sm leading-relaxed">
-            {errorMessage}
-          </p>
-        </div>
-        <button
-          onClick={() => setShowErrorNotification(false)}
-          className="flex-shrink-0 text-gray-400 hover:text-gray-600 transition-colors duration-200"
-        >
-          <X size={20} />
-        </button>
-      </div>
+      )}
 
-      <div className="mt-4 w-full bg-gray-200 rounded-full h-1">
-        <div className="bg-red-500 h-1 rounded-full animate-progress-bar"></div>
-      </div>
-    </div>
-  </div>
-)}
       <div className="container mx-auto px-4 py-8">
         <div className="firstAni text-center mb-16">
           <div className="flex items-center justify-center space-x-2 mb-4">
-         
             <h1 className="text-4xl md:text-5xl font-bold text-gray-800">
               {t("title.firstPart")}{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-teal-600">
@@ -417,7 +417,7 @@ export default function ReviewsPage() {
                 <form onSubmit={handleFormSubmit} className="space-y-4">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      <label className="block text-sm font-semibold text-gray-800 mb-2">
                         {t("form.name")}
                       </label>
                       <input
@@ -426,13 +426,13 @@ export default function ReviewsPage() {
                         onChange={(e) =>
                           setReviewForm((prev) => ({ ...prev, name: e.target.value }))
                         }
-                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all duration-200"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-xl bg-white text-gray-900 placeholder:text-gray-500 focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all duration-200"
                         placeholder={t("form.placeholders.name")}
                         required
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      <label className="block text-sm font-semibold text-gray-800 mb-2">
                         {t("form.email")}
                       </label>
                       <input
@@ -441,7 +441,7 @@ export default function ReviewsPage() {
                         onChange={(e) =>
                           setReviewForm((prev) => ({ ...prev, email: e.target.value }))
                         }
-                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all duration-200"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-xl bg-white text-gray-900 placeholder:text-gray-500 focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all duration-200"
                         placeholder={t("form.placeholders.email")}
                         required
                       />
@@ -450,7 +450,7 @@ export default function ReviewsPage() {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      <label className="block text-sm font-semibold text-gray-800 mb-2">
                         {t("form.tripType")}
                       </label>
                       <select
@@ -458,7 +458,7 @@ export default function ReviewsPage() {
                         onChange={(e) =>
                           setReviewForm((prev) => ({ ...prev, category: e.target.value }))
                         }
-                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all duration-200"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-xl bg-white text-gray-900 focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all duration-200"
                         required
                       >
                         {categoryOptions.map((option) => (
@@ -469,7 +469,7 @@ export default function ReviewsPage() {
                       </select>
                     </div>
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      <label className="block text-sm font-semibold text-gray-800 mb-2">
                         {t("form.tripNumber")}
                       </label>
                       <input
@@ -481,24 +481,24 @@ export default function ReviewsPage() {
                             tripReference: e.target.value
                           }))
                         }
-                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all duration-200"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-xl bg-white text-gray-900 placeholder:text-gray-500 focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all duration-200"
                         placeholder="Pvz.: KT2024-001"
                       />
-                      <p className="text-sm text-gray-500 mt-1">
+                      <p className="text-sm text-gray-600 mt-1">
                         {t("form.helpers.tripNumber")}
                       </p>
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label className="block text-sm font-semibold text-gray-800 mb-2">
                       {t("form.rating")}
                     </label>
                     <div className="flex items-center space-x-4">
                       <div className="flex space-x-1">
                         {renderRatingStars(reviewForm.rating, true, handleRatingChange)}
                       </div>
-                      <span className="text-lg font-semibold text-gray-600">
+                      <span className="text-lg font-semibold text-gray-700">
                         {reviewForm.rating > 0
                           ? `${reviewForm.rating}/5`
                           : t("form.selectRating")}
@@ -507,7 +507,7 @@ export default function ReviewsPage() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label className="block text-sm font-semibold text-gray-800 mb-2">
                       {t("form.review")}
                     </label>
                     <textarea
@@ -519,19 +519,19 @@ export default function ReviewsPage() {
                         }))
                       }
                       rows={4}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all duration-200 resize-none"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-xl bg-white text-gray-900 placeholder:text-gray-500 focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all duration-200 resize-none"
                       placeholder={t("form.placeholders.review")}
                       required
                     />
                     <div className="flex justify-between items-center mt-1">
-                      <p className="text-xs text-gray-500">
+                      <p className="text-xs text-gray-600">
                         {t("form.validation.minLength")}
                       </p>
                       <p
                         className={`text-xs font-medium ${
                           reviewForm.description.length >= 15
                             ? "text-green-600"
-                            : "text-gray-500"
+                            : "text-gray-600"
                         }`}
                       >
                         {reviewForm.description.length}/15
@@ -540,7 +540,7 @@ export default function ReviewsPage() {
                   </div>
 
                   <div className="bg-gray-50 rounded-xl p-3">
-                    <div className="flex items-center space-x-2 text-gray-600">
+                    <div className="flex items-center space-x-2 text-gray-700">
                       <Calendar size={14} />
                       <span className="text-sm">
                         {t("form.autoDate")} {new Date().toLocaleDateString("lt-LT")}
@@ -552,7 +552,7 @@ export default function ReviewsPage() {
                     <button
                       type="button"
                       onClick={closeReviewForm}
-                      className="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold py-3 px-4 rounded-xl transition-all duration-200"
+                      className="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-3 px-4 rounded-xl transition-all duration-200"
                     >
                       {t("form.buttons.cancel")}
                     </button>
@@ -603,7 +603,7 @@ export default function ReviewsPage() {
 
         <div className="secondAni bg-white rounded-2xl shadow-lg p-6 mb-8">
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-3">
+            <label className="block text-sm font-semibold text-gray-800 mb-3">
               {t("filters.rating")}
             </label>
             <div className="flex flex-wrap gap-2">
@@ -614,7 +614,7 @@ export default function ReviewsPage() {
                   className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
                     filterRating === rating.id
                       ? "bg-gradient-to-r from-teal-500 to-teal-600 text-white"
-                      : "bg-gray-100 text-gray-700 hover:bg-teal-50 hover:text-teal-600"
+                      : "bg-gray-100 text-gray-800 hover:bg-teal-50 hover:text-teal-600"
                   }`}
                 >
                   {rating.label}
@@ -660,13 +660,13 @@ export default function ReviewsPage() {
                       <h4 className="font-bold text-gray-800 text-lg">
                         {filteredReviews[currentReview]?.name}
                       </h4>
-                      <p className="text-gray-600">{filteredReviews[currentReview]?.email}</p>
+                      <p className="text-gray-700">{filteredReviews[currentReview]?.email}</p>
                       {filteredReviews[currentReview]?.trip_reference && (
                         <p className="text-sm text-teal-600 font-semibold mt-1">
                           {filteredReviews[currentReview]?.trip_reference}
                         </p>
                       )}
-                      <p className="text-xs text-gray-500 mt-1">
+                      <p className="text-xs text-gray-600 mt-1">
                         {new Date(
                           filteredReviews[currentReview]?.created_at || ""
                         ).toLocaleDateString("lt-LT")}
@@ -743,13 +743,13 @@ export default function ReviewsPage() {
                     </div>
                     <div className="flex-1">
                       <h4 className="font-bold text-gray-800">{review.name}</h4>
-                      <div className="text-sm text-gray-600">{review.email}</div>
+                      <div className="text-sm text-gray-700">{review.email}</div>
                     </div>
                   </div>
 
                   <div className="flex items-center space-x-2 mb-3">
                     <div className="flex space-x-1">{renderStars(review.rating)}</div>
-                    <span className="text-sm text-gray-600">{review.rating}/5</span>
+                    <span className="text-sm text-gray-700">{review.rating}/5</span>
                   </div>
 
                   {review.trip_reference && (
@@ -758,11 +758,11 @@ export default function ReviewsPage() {
                     </div>
                   )}
 
-                  <p className="text-gray-700 leading-relaxed mb-4 line-clamp-4">
+                  <p className="text-gray-800 leading-relaxed mb-4 line-clamp-4">
                     {review.comment}
                   </p>
 
-                  <div className="flex items-center justify-between text-sm text-gray-500 pt-4 border-t border-gray-100">
+                  <div className="flex items-center justify-between text-sm text-gray-600 pt-4 border-t border-gray-100">
                     <div className="flex items-center space-x-1">
                       <Calendar size={14} />
                       <span>{new Date(review.created_at).toLocaleDateString("lt-LT")}</span>
@@ -796,7 +796,7 @@ export default function ReviewsPage() {
             <h3 className="text-xl font-bold text-gray-800 mb-2">
               {t("trustIndicators.verifiedReviews.title")}
             </h3>
-            <p className="text-gray-600">{t("trustIndicators.verifiedReviews.description")}</p>
+            <p className="text-gray-700">{t("trustIndicators.verifiedReviews.description")}</p>
           </div>
 
           <div className="text-center p-6 bg-white rounded-2xl shadow-lg">
@@ -806,7 +806,7 @@ export default function ReviewsPage() {
             <h3 className="text-xl font-bold text-gray-800 mb-2">
               {t("trustIndicators.realCustomers.title")}
             </h3>
-            <p className="text-gray-600">{t("trustIndicators.realCustomers.description")}</p>
+            <p className="text-gray-700">{t("trustIndicators.realCustomers.description")}</p>
           </div>
 
           <div className="text-center p-6 bg-white rounded-2xl shadow-lg">
@@ -816,7 +816,7 @@ export default function ReviewsPage() {
             <h3 className="text-xl font-bold text-gray-800 mb-2">
               {t("trustIndicators.highRating.title")}
             </h3>
-            <p className="text-gray-600">{t("trustIndicators.highRating.description")}</p>
+            <p className="text-gray-700">{t("trustIndicators.highRating.description")}</p>
           </div>
         </div>
       </div>

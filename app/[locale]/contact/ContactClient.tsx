@@ -445,12 +445,12 @@ export default function ContactClient() {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label className="block text-sm font-semibold text-gray-800 mb-2">
                     {t("form.name.label")}
                   </label>
                   <div className="relative">
                     <User
-                      className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                      className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500"
                       size={20}
                     />
                     <input
@@ -459,19 +459,19 @@ export default function ContactClient() {
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      className="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:border-teal-500 focus:outline-none transition-all duration-300 text-lg"
+                      className="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-xl bg-white text-gray-900 placeholder:text-gray-500 focus:border-teal-500 focus:outline-none transition-all duration-300 text-lg"
                       placeholder={t("form.name.placeholder")}
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label className="block text-sm font-semibold text-gray-800 mb-2">
                     {t("form.email.label")}
                   </label>
                   <div className="relative">
                     <Mail
-                      className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                      className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500"
                       size={20}
                     />
                     <input
@@ -480,7 +480,7 @@ export default function ContactClient() {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:border-teal-500 focus:outline-none transition-all duration-300 text-lg"
+                      className="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-xl bg-white text-gray-900 placeholder:text-gray-500 focus:border-teal-500 focus:outline-none transition-all duration-300 text-lg"
                       placeholder={t("form.email.placeholder")}
                     />
                   </div>
@@ -489,12 +489,12 @@ export default function ContactClient() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label className="block text-sm font-semibold text-gray-800 mb-2">
                     {t("form.phone.label")}
                   </label>
                   <div className="relative">
                     <Phone
-                      className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                      className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500"
                       size={20}
                     />
                     <input
@@ -508,14 +508,14 @@ export default function ContactClient() {
                           phone: value
                         }));
                       }}
-                      className="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:border-teal-500 focus:outline-none transition-all duration-300 text-lg"
+                      className="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-xl bg-white text-gray-900 placeholder:text-gray-500 focus:border-teal-500 focus:outline-none transition-all duration-300 text-lg"
                       placeholder={t("form.phone.placeholder")}
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label className="block text-sm font-semibold text-gray-800 mb-2">
                     {t("form.subject.label")}
                   </label>
                   <select
@@ -523,7 +523,7 @@ export default function ContactClient() {
                     value={formData.subject}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-teal-500 focus:outline-none transition-all duration-300 text-lg appearance-none bg-white"
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl bg-white text-gray-900 focus:border-teal-500 focus:outline-none transition-all duration-300 text-lg appearance-none"
                   >
                     <option value="">{t("form.subject.placeholder")}</option>
                     {subjects.map((subject, index) => (
@@ -537,14 +537,14 @@ export default function ContactClient() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label className="block text-sm font-semibold text-gray-800 mb-2">
                     {t("form.preferredContact.label")}
                   </label>
                   <select
                     name="preferredContact"
                     value={formData.preferredContact}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-teal-500 focus:outline-none transition-all duration-300 text-lg appearance-none bg-white"
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl bg-white text-gray-900 focus:border-teal-500 focus:outline-none transition-all duration-300 text-lg appearance-none"
                   >
                     {preferredContactOptions.map((option) => (
                       <option key={option.value} value={option.value}>
@@ -555,14 +555,14 @@ export default function ContactClient() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label className="block text-sm font-semibold text-gray-800 mb-2">
                     {t("form.urgency.label")}
                   </label>
                   <select
                     name="urgency"
                     value={formData.urgency}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-teal-500 focus:outline-none transition-all duration-300 text-lg appearance-none bg-white"
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl bg-white text-gray-900 focus:border-teal-500 focus:outline-none transition-all duration-300 text-lg appearance-none"
                   >
                     {urgencyOptions.map((option) => (
                       <option key={option.value} value={option.value}>
@@ -574,7 +574,7 @@ export default function ContactClient() {
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                <label className="block text-sm font-semibold text-gray-800 mb-2">
                   {t("form.message.label")}
                 </label>
                 <textarea
@@ -583,16 +583,16 @@ export default function ContactClient() {
                   onChange={handleInputChange}
                   required
                   rows={6}
-                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-teal-500 focus:outline-none transition-all duration-300 text-lg resize-none"
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl bg-white text-gray-900 placeholder:text-gray-500 focus:border-teal-500 focus:outline-none transition-all duration-300 text-lg resize-none"
                   placeholder={t("form.message.placeholder")}
                 />
                 <div className="flex justify-between items-center mt-2">
-                  <p className="text-sm text-gray-500">{t("form.message.minLength")}</p>
+                  <p className="text-sm text-gray-600">{t("form.message.minLength")}</p>
                   <p
                     className={`text-sm font-medium ${
                       formData.message.length >= 3 && formData.message.length <= 70
                         ? "text-green-600"
-                        : "text-gray-500"
+                        : "text-gray-600"
                     }`}
                   >
                     {formData.message.length}/70

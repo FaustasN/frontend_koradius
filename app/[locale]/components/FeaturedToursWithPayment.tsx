@@ -370,465 +370,6 @@ const FeaturedToursWithPayment = () => {
       </div>
     );
   }
-
-  return (
-    <>
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-800 mb-4">{t("title")}</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">{t("subtitle")}</p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {currentTours.map((tour) => (
-              <div
-                key={tour.id}
-                className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col"
-              >
-                <div className="relative h-48 bg-gray-200 flex-shrink-0">
-                  {tour.image && (
-                    <Image
-                      src={tour.image}
-                      alt={tour.title}
-                      width={1000}
-                      height={1000}
-                      className="w-full h-full object-cover"
-                    />
-                  )}
-
-                  {tour.badge && (
-                    <div
-                      className={`absolute top-4 left-4 px-3 py-1 rounded-full text-sm font-semibold ${getBadgeColor(
-                        tour.badge
-                      )}`}
-                    >
-                      {tour.badge}
-                    </div>
-                  )}
-
-                  <div className="absolute top-4 right-4 bg-white rounded-full p-2 shadow-md">
-                    <Star className="h-5 w-5 text-yellow-500 fill-current" />
-                  </div>
-                </div>
-
-                <div className="p-6 flex flex-col flex-grow">
-                  <h3 className="text-xl font-bold text-gray-800 mb-2">{tour.title}</h3>
-
-                  <div className="mb-4 min-h-[3rem]">
-                    <p className="text-gray-600 line-clamp-2">{tour.description}</p>
-                  </div>
-
-                  <div className="space-y-2 mb-4 flex-shrink-0">
-                    <div className="flex items-center text-gray-600">
-                      <Clock className="h-4 w-4 mr-2" />
-                      <span className="text-sm">
-                        {tour.duration} {t("days")}
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center justify-between gap-3 mt-auto flex-shrink-0">
-                    <div className="flex flex-col items-start">
-                      <div className="flex items-center space-x-2">
-                        <span className="text-lg font-bold text-green-600">€{tour.price}</span>
-                        {tour.originalPrice ? (
-                          <span className="text-sm text-gray-400 line-through">
-                            €{tour.originalPrice}
-                          </span>
-                        ) : null}
-                      </div>
-                      <span className="text-gray-500 text-xs">/ {t("person")}</span>
-                    </div>
-
-                    <div className="grid grid-cols-2 gap-2 w-full sm:w-auto sm:flex sm:flex-row">
-                      <button
-                        onClick={() => openTourDetails(tour)}
-                        className="min-w-0 px-2.5 py-2 bg-white text-teal-600 border-2 border-teal-600 rounded-full font-bold hover:bg-teal-50 transition-colors flex items-center justify-center text-xs sm:text-sm text-center leading-tight whitespace-normal"
-                      >
-                        {t("moreInfo")}
-                      </button>
-
-                      <button
-                        onClick={() => openBookingForm(tour)}
-                        className="min-w-0 px-2.5 py-2 bg-teal-600 text-white rounded-full font-bold hover:bg-teal-700 transition-colors flex items-center justify-center text-xs sm:text-sm text-center leading-tight whitespace-normal"
-                      >
-                        <CreditCard className="mr-1 h-4 w-4 flex-shrink-0 hidden sm:block" />
-                        <span className="break-words">{t("bookNow")}</span>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {tours.length > toursPerPage && (
-            <div className="flex justify-center items-center mt-8 space-x-4">
-              <button
-                onClick={prevPage}
-                className="p-3 bg-white text-teal-600 border-2 border-teal-600 rounded-full hover:bg-teal-50 transition-colors"
-                aria-label={t("common.previous")}
-              >
-                <ChevronLeft className="h-6 w-6" />
-              </button>
-
-              <div className="flex space-x-2">
-                {Array.from({ length: totalPages }, (_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentPage(index)}
-                    className={`w-3 h-3 rounded-full transition-colors ${
-                      index === currentPage
-                        ? "bg-teal-600"
-                        : "bg-gray-300 hover:bg-gray-400"
-                    }`}
-                    aria-label={`${t("common.page")} ${index + 1}`}
-                  />
-                ))}
-              </div>
-
-              <button
-                onClick={nextPage}
-                className="p-3 bg-white text-teal-600 border-2 border-teal-600 rounded-full hover:bg-teal-50 transition-colors"
-                aria-label={t("common.next")}
-              >
-                <ChevronRight className="h-6 w-6" />
-              </button>
-            </div>
-          )}
-
-          <div className="text-center mt-12">
-            <Link
-              href="/search"
-              className="inline-flex items-center px-8 py-3 bg-teal-600 text-white rounded-full font-bold hover:bg-teal-700 transition-colors"
-            >
-              {t("viewAllTours")}
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {showTourDetails && tourDetails && (
-        <div
-          ref={detailsOverlayRef}
-          className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50 p-4"
-        >
-          <div
-            ref={detailsContentRef}
-            className="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto"
-          >
-            <div className="p-6">
-              <div className="flex justify-between items-center mb-6">
-                <div>
-                  <h3 className="text-2xl font-bold text-gray-800">{tourDetails.title}</h3>
-                  <p className="text-gray-500 text-sm mt-1">{t("viewFullDescription")}</p>
-                </div>
-
-                <button
-                  onClick={closeTourDetails}
-                  className="text-gray-400 hover:text-gray-600"
-                >
-                  <X className="h-6 w-6" />
-                </button>
-              </div>
-
-              <div className="relative h-64 bg-gray-200 rounded-lg mb-6">
-                {tourDetails.image && (
-                  <Image
-                    src={tourDetails.image}
-                    alt={tourDetails.title}
-                    width={1000}
-                    height={1000}
-                    className="w-full h-full object-cover rounded-lg"
-                  />
-                )}
-
-                {tourDetails.badge && (
-                  <div
-                    className={`absolute top-4 left-4 px-3 py-1 rounded-full text-sm font-semibold ${getBadgeColor(
-                      tourDetails.badge
-                    )}`}
-                  >
-                    {tourDetails.badge}
-                  </div>
-                )}
-              </div>
-
-              <div className="mb-6">
-                <div className="flex items-center justify-between mb-3">
-                  <h4 className="text-lg font-semibold text-gray-800">{t("description")}</h4>
-
-                  <div className="inline-flex items-center text-sm text-gray-600">
-                    <Clock className="h-5 w-5 mr-2 text-blue-500" />
-                    <span className="font-medium">{t("duration")}</span>
-                    <span className="ml-2">
-                      {tourDetails.duration} {t("days")}
-                    </span>
-                  </div>
-                </div>
-
-                <div className="bg-gray-50 rounded-lg p-4">
-                  <p className="text-gray-700 leading-relaxed whitespace-pre-wrap break-words text-justify">
-                    {tourDetails.description}
-                  </p>
-                </div>
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-6 mb-6">
-                <div className="space-y-4">
-                  <div>
-                    {(tourDetails.includes ?? []).map((item, index) => (
-                      <div key={index} className="flex items-center text-gray-600 mb-2">
-                        <Check className="h-5 w-5 text-green-500 mr-2" />
-                        <span>{item}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="space-y-4">
-                  <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-                    <div className="text-center">
-                      <div className="text-3xl font-bold text-green-600 mb-1">
-                        €{tourDetails.price} / {t("person")}
-                      </div>
-
-                      {tourDetails.originalPrice ? (
-                        <div className="text-xs text-green-600 line-through mt-1">
-                          €{tourDetails.originalPrice}
-                        </div>
-                      ) : null}
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex justify-center space-x-4">
-                <button
-                  onClick={() => {
-                    closeTourDetails();
-                    openBookingForm(tourDetails);
-                  }}
-                  className="px-6 py-3 bg-teal-600 text-white rounded-full font-bold hover:bg-teal-700 transition-colors flex items-center"
-                >
-                  <CreditCard className="mr-2 h-5 w-5" />
-                  {t("bookNowButton")}
-                </button>
-
-                <button
-                  onClick={closeTourDetails}
-                  className="px-6 py-3 bg-white text-teal-600 border-2 border-teal-600 rounded-full font-bold hover:bg-teal-50 transition-colors"
-                >
-                  {t("close")}
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {showBookingForm && (
-        <div
-          ref={bookingOverlayRef}
-          className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50 p-4"
-        >
-          <div
-            ref={bookingContentRef}
-            className="bg-white rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto"
-          >
-            <div className="p-6">
-              <div className="flex justify-between items-center mb-6">
-                <h3 className="text-2xl font-bold text-gray-800">{t("bookingForm.title")}</h3>
-                <button
-                  onClick={closeBookingForm}
-                  className="text-gray-400 hover:text-gray-600"
-                >
-                  <X className="h-6 w-6" />
-                </button>
-              </div>
-
-              {!bookingConfirmed ? (
-                <form onSubmit={handleBookingSubmit} className="space-y-4">
-                  {formError && (
-                    <div className="flex items-start p-3 bg-red-50 border border-red-200 rounded-md">
-                      <AlertCircle className="h-5 w-5 text-red-600 mr-2 mt-0.5" />
-                      <p className="text-sm text-red-700">{formError}</p>
-                    </div>
-                  )}
-
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
-                        {t("bookingForm.fullName")}
-                      </label>
-                      <input
-                        type="text"
-                        value={bookingForm.name}
-                        onChange={handleNameChange}
-                        placeholder="Jonas Jonaitis"
-                        className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                          nameError ? "border-red-500 focus:ring-red-500" : "border-gray-300"
-                        }`}
-                        required
-                      />
-                      {nameError && <p className="mt-1 text-sm text-red-600">{nameError}</p>}
-                      <p className="mt-1 text-xs text-gray-500">{t("bookingForm.minLetters")}</p>
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
-                        {t("bookingForm.phoneNumber")}
-                      </label>
-                      <input
-                        type="tel"
-                        value={bookingForm.phone}
-                        onChange={handlePhoneChange}
-                        placeholder="+370 6XX XXXXX"
-                        className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                          phoneError ? "border-red-500 focus:ring-red-500" : "border-gray-300"
-                        }`}
-                        required
-                      />
-                      {phoneError && <p className="mt-1 text-sm text-red-600">{phoneError}</p>}
-                      <p className="mt-1 text-xs text-gray-500">{t("bookingForm.minDigits")}</p>
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      {t("bookingForm.emailAddress")}
-                    </label>
-                    <input
-                      type="email"
-                      value={bookingForm.email}
-                      onChange={handleEmailChange}
-                      placeholder="jonas@example.com"
-                      className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                        emailError ? "border-red-500 focus:ring-red-500" : "border-gray-300"
-                      }`}
-                      required
-                    />
-                    {emailError && <p className="mt-1 text-sm text-red-600">{emailError}</p>}
-                    <p className="mt-1 text-xs text-gray-500">{t("bookingForm.validEmail")}</p>
-                  </div>
-
-                  <div className="w-1/2">
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      {t("bookingForm.departureDate")}
-                    </label>
-                    <CustomDatePicker
-                      value={bookingForm.departureDate}
-                      onChange={handleDepartureDateChange}
-                      minDate={new Date().toISOString().split("T")[0]}
-                      placeholder={t("common.selectDate")}
-                      error={departureDateError}
-                    />
-                  </div>
-
-                  {durationError && (
-                    <div className="col-span-2">
-                      <p className="mt-1 text-sm text-red-600">{durationError}</p>
-                    </div>
-                  )}
-
-                  {selectedTour?.duration && (
-                    <div>
-                      <p className="mt-1 text-xs text-gray-500">
-                        {t("tourDuration")} {selectedTour.duration} {t("days")}{" "}
-                        {t("accordingToPackage")}
-                      </p>
-                    </div>
-                  )}
-
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      {t("bookingForm.numberOfPeople")}
-                    </label>
-                    <input
-                      type="number"
-                      min="1"
-                      max="50"
-                      value={bookingForm.numberOfPeople}
-                      onChange={(e) => {
-                        const value = parseInt(e.target.value, 10);
-                        if (!Number.isNaN(value) && value >= 1) {
-                          setBookingForm((prev) => ({ ...prev, numberOfPeople: value }));
-                        }
-                      }}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      required
-                    />
-                    <p className="mt-1 text-xs text-gray-500">{t("bookingForm.minPeople")}</p>
-                  </div>
-
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full py-3 bg-teal-600 text-white rounded-full font-bold hover:bg-teal-700 transition-colors disabled:opacity-50"
-                  >
-                    {isSubmitting
-                      ? t("paymentSection.submitting")
-                      : t("paymentSection.submitbutton")}
-                  </button>
-                </form>
-              ) : (
-                <div className="space-y-6">
-                  <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-                    <div className="flex items-center">
-                      <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center mr-3">
-                        <CheckIcon className="h-5 w-5 text-white" />
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-green-800">
-                          {t("paymentSection.bookingConfirmed")}
-                        </h4>
-                        <p className="text-green-700 text-sm">
-                          {t("paymentSection.nowCanPay")}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="bg-gray-50 rounded-lg p-4">
-                    <h4 className="font-semibold text-gray-800 mb-3">
-                      {t("paymentSection.orderInfo")}
-                    </h4>
-
-                    <div className="space-y-2 text-sm">
-                      <div className="flex justify-between">
-                        <span className="text-gray-600">{t("paymentSection.tour")}</span>
-                        <span className="font-medium">{selectedTour?.title}</span>
-                      </div>
-
-                      <div className="flex justify-between">
-                        <span className="text-gray-600">
-                          {t("paymentSection.numberOfPeople")}
-                        </span>
-                        <span className="font-medium">{bookingForm.numberOfPeople}</span>
-                      </div>
-
-                      <div className="flex justify-between">
-                        <span className="text-gray-600">{t("paymentSection.totalAmount")}</span>
-                        <span className="font-bold text-lg text-green-600">
-                          €{calculateTotalPrice().toFixed(2)}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="space-y-4" />
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-      )}
-    </>
-  );
-};
-
 const CheckIcon = ({ className }: { className?: string }) => (
   <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path
@@ -839,5 +380,461 @@ const CheckIcon = ({ className }: { className?: string }) => (
     />
   </svg>
 );
+return (
+  <>
+    <section className="py-16 bg-gray-50">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-bold text-gray-800 mb-4">{t("title")}</h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">{t("subtitle")}</p>
+        </div>
 
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {currentTours.map((tour) => (
+            <div
+              key={tour.id}
+              className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col"
+            >
+              <div className="relative h-48 bg-gray-200 flex-shrink-0">
+                {tour.image && (
+                  <Image
+                    src={tour.image}
+                    alt={tour.title}
+                    width={1000}
+                    height={1000}
+                    className="w-full h-full object-cover"
+                  />
+                )}
+
+                {tour.badge && (
+                  <div
+                    className={`absolute top-4 left-4 px-3 py-1 rounded-full text-sm font-semibold ${getBadgeColor(
+                      tour.badge
+                    )}`}
+                  >
+                    {tour.badge}
+                  </div>
+                )}
+
+                <div className="absolute top-4 right-4 bg-white rounded-full p-2 shadow-md">
+                  <Star className="h-5 w-5 text-yellow-500 fill-current" />
+                </div>
+              </div>
+
+              <div className="p-6 flex flex-col flex-grow">
+                <h3 className="text-xl font-bold text-gray-800 mb-2">{tour.title}</h3>
+
+                <div className="mb-4 min-h-[3rem]">
+                  <p className="text-gray-600 line-clamp-2">{tour.description}</p>
+                </div>
+
+                <div className="space-y-2 mb-4 flex-shrink-0">
+                  <div className="flex items-center text-gray-600">
+                    <Clock className="h-4 w-4 mr-2" />
+                    <span className="text-sm">
+                      {tour.duration} {t("days")}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-between gap-3 mt-auto flex-shrink-0">
+                  <div className="flex flex-col items-start">
+                    <div className="flex items-center space-x-2">
+                      <span className="text-lg font-bold text-green-600">€{tour.price}</span>
+                      {tour.originalPrice ? (
+                        <span className="text-sm text-gray-400 line-through">
+                          €{tour.originalPrice}
+                        </span>
+                      ) : null}
+                    </div>
+                    <span className="text-gray-500 text-xs">/ {t("person")}</span>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-2 w-full sm:w-auto sm:flex sm:flex-row">
+                    <button
+                      onClick={() => openTourDetails(tour)}
+                      className="min-w-0 px-2.5 py-2 bg-white text-teal-600 border-2 border-teal-600 rounded-full font-bold hover:bg-teal-50 transition-colors flex items-center justify-center text-xs sm:text-sm text-center leading-tight whitespace-normal"
+                    >
+                      {t("moreInfo")}
+                    </button>
+
+                    <button
+                      onClick={() => openBookingForm(tour)}
+                      className="min-w-0 px-2.5 py-2 bg-teal-600 text-white rounded-full font-bold hover:bg-teal-700 transition-colors flex items-center justify-center text-xs sm:text-sm text-center leading-tight whitespace-normal"
+                    >
+                      <CreditCard className="mr-1 h-4 w-4 flex-shrink-0 hidden sm:block" />
+                      <span className="break-words">{t("bookNow")}</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {tours.length > toursPerPage && (
+          <div className="flex justify-center items-center mt-8 space-x-4">
+            <button
+              onClick={prevPage}
+              className="p-3 bg-white text-teal-600 border-2 border-teal-600 rounded-full hover:bg-teal-50 transition-colors"
+              aria-label={t("common.previous")}
+            >
+              <ChevronLeft className="h-6 w-6" />
+            </button>
+
+            <div className="flex space-x-2">
+              {Array.from({ length: totalPages }, (_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentPage(index)}
+                  className={`w-3 h-3 rounded-full transition-colors ${
+                    index === currentPage
+                      ? "bg-teal-600"
+                      : "bg-gray-300 hover:bg-gray-400"
+                  }`}
+                  aria-label={`${t("common.page")} ${index + 1}`}
+                />
+              ))}
+            </div>
+
+            <button
+              onClick={nextPage}
+              className="p-3 bg-white text-teal-600 border-2 border-teal-600 rounded-full hover:bg-teal-50 transition-colors"
+              aria-label={t("common.next")}
+            >
+              <ChevronRight className="h-6 w-6" />
+            </button>
+          </div>
+        )}
+
+        <div className="text-center mt-12">
+          <Link
+            href="/search"
+            className="inline-flex items-center px-8 py-3 bg-teal-600 text-white rounded-full font-bold hover:bg-teal-700 transition-colors"
+          >
+            {t("viewAllTours")}
+            <ArrowRight className="ml-2 h-5 w-5" />
+          </Link>
+        </div>
+      </div>
+    </section>
+
+    {showTourDetails && tourDetails && (
+      <div
+        ref={detailsOverlayRef}
+        className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50 p-4"
+      >
+        <div
+          ref={detailsContentRef}
+          className="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+        >
+          <div className="p-6">
+            <div className="flex justify-between items-center mb-6">
+              <div>
+                <h3 className="text-2xl font-bold text-gray-800">{tourDetails.title}</h3>
+                <p className="text-gray-500 text-sm mt-1">{t("viewFullDescription")}</p>
+              </div>
+
+              <button
+                onClick={closeTourDetails}
+                className="text-gray-400 hover:text-gray-600"
+              >
+                <X className="h-6 w-6" />
+              </button>
+            </div>
+
+            <div className="relative h-64 bg-gray-200 rounded-lg mb-6">
+              {tourDetails.image && (
+                <Image
+                  src={tourDetails.image}
+                  alt={tourDetails.title}
+                  width={1000}
+                  height={1000}
+                  className="w-full h-full object-cover rounded-lg"
+                />
+              )}
+
+              {tourDetails.badge && (
+                <div
+                  className={`absolute top-4 left-4 px-3 py-1 rounded-full text-sm font-semibold ${getBadgeColor(
+                    tourDetails.badge
+                  )}`}
+                >
+                  {tourDetails.badge}
+                </div>
+              )}
+            </div>
+
+            <div className="mb-6">
+              <div className="flex items-center justify-between mb-3">
+                <h4 className="text-lg font-semibold text-gray-800">{t("description")}</h4>
+
+                <div className="inline-flex items-center text-sm text-gray-600">
+                  <Clock className="h-5 w-5 mr-2 text-blue-500" />
+                  <span className="font-medium">{t("duration")}</span>
+                  <span className="ml-2">
+                    {tourDetails.duration} {t("days")}
+                  </span>
+                </div>
+              </div>
+
+              <div className="bg-gray-50 rounded-lg p-4">
+                <p className="text-gray-700 leading-relaxed whitespace-pre-wrap break-words text-justify">
+                  {tourDetails.description}
+                </p>
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6 mb-6">
+              <div className="space-y-4">
+                <div>
+                  {(tourDetails.includes ?? []).map((item, index) => (
+                    <div key={index} className="flex items-center text-gray-600 mb-2">
+                      <Check className="h-5 w-5 text-green-500 mr-2" />
+                      <span>{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="space-y-4">
+                <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-green-600 mb-1">
+                      €{tourDetails.price} / {t("person")}
+                    </div>
+
+                    {tourDetails.originalPrice ? (
+                      <div className="text-xs text-green-600 line-through mt-1">
+                        €{tourDetails.originalPrice}
+                      </div>
+                    ) : null}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex justify-center space-x-4">
+              <button
+                onClick={() => {
+                  closeTourDetails();
+                  openBookingForm(tourDetails);
+                }}
+                className="px-6 py-3 bg-teal-600 text-white rounded-full font-bold hover:bg-teal-700 transition-colors flex items-center"
+              >
+                <CreditCard className="mr-2 h-5 w-5" />
+                {t("bookNowButton")}
+              </button>
+
+              <button
+                onClick={closeTourDetails}
+                className="px-6 py-3 bg-white text-teal-600 border-2 border-teal-600 rounded-full font-bold hover:bg-teal-50 transition-colors"
+              >
+                {t("close")}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    )}
+
+    {showBookingForm && (
+      <div
+        ref={bookingOverlayRef}
+        className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50 p-4"
+      >
+        <div
+          ref={bookingContentRef}
+          className="bg-white rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+        >
+          <div className="p-6">
+            <div className="flex justify-between items-center mb-6">
+              <h3 className="text-2xl font-bold text-gray-800">{t("bookingForm.title")}</h3>
+              <button
+                onClick={closeBookingForm}
+                className="text-gray-400 hover:text-gray-600"
+              >
+                <X className="h-6 w-6" />
+              </button>
+            </div>
+
+            {!bookingConfirmed ? (
+              <form onSubmit={handleBookingSubmit} className="space-y-4">
+                {formError && (
+                  <div className="flex items-start p-3 bg-red-50 border border-red-200 rounded-md">
+                    <AlertCircle className="h-5 w-5 text-red-600 mr-2 mt-0.5" />
+                    <p className="text-sm text-red-700">{formError}</p>
+                  </div>
+                )}
+
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-800 mb-1">
+                      {t("bookingForm.fullName")}
+                    </label>
+                    <input
+                      type="text"
+                      value={bookingForm.name}
+                      onChange={handleNameChange}
+                      placeholder="Jonas Jonaitis"
+                      className={`w-full px-3 py-2 border rounded-md bg-white text-gray-900 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                        nameError ? "border-red-500 focus:ring-red-500" : "border-gray-300"
+                      }`}
+                      required
+                    />
+                    {nameError && <p className="mt-1 text-sm text-red-600">{nameError}</p>}
+                    <p className="mt-1 text-xs text-gray-600">{t("bookingForm.minLetters")}</p>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-800 mb-1">
+                      {t("bookingForm.phoneNumber")}
+                    </label>
+                    <input
+                      type="tel"
+                      value={bookingForm.phone}
+                      onChange={handlePhoneChange}
+                      placeholder="+370 6XX XXXXX"
+                      className={`w-full px-3 py-2 border rounded-md bg-white text-gray-900 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                        phoneError ? "border-red-500 focus:ring-red-500" : "border-gray-300"
+                      }`}
+                      required
+                    />
+                    {phoneError && <p className="mt-1 text-sm text-red-600">{phoneError}</p>}
+                    <p className="mt-1 text-xs text-gray-600">{t("bookingForm.minDigits")}</p>
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-800 mb-1">
+                    {t("bookingForm.emailAddress")}
+                  </label>
+                  <input
+                    type="email"
+                    value={bookingForm.email}
+                    onChange={handleEmailChange}
+                    placeholder="jonas@example.com"
+                    className={`w-full px-3 py-2 border rounded-md bg-white text-gray-900 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                      emailError ? "border-red-500 focus:ring-red-500" : "border-gray-300"
+                    }`}
+                    required
+                  />
+                  {emailError && <p className="mt-1 text-sm text-red-600">{emailError}</p>}
+                  <p className="mt-1 text-xs text-gray-600">{t("bookingForm.validEmail")}</p>
+                </div>
+
+                <div className="w-1/2">
+                  <label className="block text-sm font-medium text-gray-800 mb-1">
+                    {t("bookingForm.departureDate")}
+                  </label>
+                  <CustomDatePicker
+                    value={bookingForm.departureDate}
+                    onChange={handleDepartureDateChange}
+                    minDate={new Date().toISOString().split("T")[0]}
+                    placeholder={t("common.selectDate")}
+                    error={departureDateError}
+                  />
+                </div>
+
+                {durationError && (
+                  <div className="col-span-2">
+                    <p className="mt-1 text-sm text-red-600">{durationError}</p>
+                  </div>
+                )}
+
+                {selectedTour?.duration && (
+                  <div>
+                    <p className="mt-1 text-xs text-gray-600">
+                      {t("tourDuration")} {selectedTour.duration} {t("days")}{" "}
+                      {t("accordingToPackage")}
+                    </p>
+                  </div>
+                )}
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-800 mb-1">
+                    {t("bookingForm.numberOfPeople")}
+                  </label>
+                  <input
+                    type="number"
+                    min="1"
+                    max="50"
+                    value={bookingForm.numberOfPeople}
+                    onChange={(e) => {
+                      const value = parseInt(e.target.value, 10);
+                      if (!Number.isNaN(value) && value >= 1) {
+                        setBookingForm((prev) => ({ ...prev, numberOfPeople: value }));
+                      }
+                    }}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white text-gray-900 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    required
+                  />
+                  <p className="mt-1 text-xs text-gray-600">{t("bookingForm.minPeople")}</p>
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full py-3 bg-teal-600 text-white rounded-full font-bold hover:bg-teal-700 transition-colors disabled:opacity-50"
+                >
+                  {isSubmitting
+                    ? t("paymentSection.submitting")
+                    : t("paymentSection.submitbutton")}
+                </button>
+              </form>
+            ) : (
+              <div className="space-y-6">
+                <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+                  <div className="flex items-center">
+                    <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center mr-3">
+                      <CheckIcon className="h-5 w-5 text-white" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-green-800">
+                        {t("paymentSection.bookingConfirmed")}
+                      </h4>
+                      <p className="text-green-700 text-sm">
+                        {t("paymentSection.nowCanPay")}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-gray-50 rounded-lg p-4">
+                  <h4 className="font-semibold text-gray-800 mb-3">
+                    {t("paymentSection.orderInfo")}
+                  </h4>
+
+                  <div className="space-y-2 text-sm">
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">{t("paymentSection.tour")}</span>
+                      <span className="font-medium">{selectedTour?.title}</span>
+                    </div>
+
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">
+                        {t("paymentSection.numberOfPeople")}
+                      </span>
+                      <span className="font-medium">{bookingForm.numberOfPeople}</span>
+                    </div>
+
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">{t("paymentSection.totalAmount")}</span>
+                      <span className="font-bold text-lg text-green-600">
+                        €{calculateTotalPrice().toFixed(2)}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="space-y-4" />
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    )}
+  </>
+);
+}
 export default FeaturedToursWithPayment;
