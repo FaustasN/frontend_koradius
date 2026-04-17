@@ -9,12 +9,20 @@ export interface BasicResponse {
 export interface AuthResponse {
   success?: boolean;
   message?: string;
+  token?: string;
   user?: {
     username: string;
     role: string;
   };
 }
-
+export interface ValidateResponse {
+  valid: boolean;
+  message?: string;
+  user?: {
+    username: string;
+    role: string;
+  };
+}
 export interface UnreadCountResponse {
   count: number;
 }
@@ -162,7 +170,6 @@ export interface Payment {
   updated_at: string;
 }
 
-// Auth API
 export const authAPI = {
   login: async (username: string, password: string): Promise<AuthResponse> => {
     return http<AuthResponse>('/auth/login', {
@@ -171,8 +178,8 @@ export const authAPI = {
     });
   },
 
-  validate: async (): Promise<BasicResponse> => {
-    return http<BasicResponse>('/auth/validate', {
+  validate: async (): Promise<ValidateResponse> => {
+    return http<ValidateResponse>('/auth/validate', {
       method: 'GET',
     });
   },

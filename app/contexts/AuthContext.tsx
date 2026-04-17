@@ -41,9 +41,10 @@ export function AuthProvider({ children }: AuthProviderProps) {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        await authAPI.validate();
-        setIsAuthenticated(true);
+        const response = await authAPI.validate();
+        setIsAuthenticated(response.valid === true);
       } catch {
+        localStorage.removeItem('adminToken');
         setIsAuthenticated(false);
       } finally {
         setIsLoading(false);
@@ -55,7 +56,17 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
   const login = useCallback(async (username: string, password: string) => {
     try {
-      await authAPI.login(username, password);
+      const response = await authAPI.login(username, password);
+
+      if (!response.success) {
+        setIsAuthenticated(false);
+        return false;
+      }
+
+      if (response.token) {
+        localStorage.setItem('adminToken', response.token);
+      }
+
       setIsAuthenticated(true);
       return true;
     } catch {
@@ -70,6 +81,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     } catch {
       // net jei logout request nepavyko, lokaliai sesiją laikom baigta
     } finally {
+      localStorage.removeItem('adminToken');
       setIsAuthenticated(false);
     }
   }, []);

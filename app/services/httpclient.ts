@@ -22,6 +22,11 @@ const hasMessage = (value: unknown): value is ErrorWithMessage => {
   );
 };
 
+const getAdminToken = (): string | null => {
+  if (typeof window === 'undefined') return null;
+  return localStorage.getItem('adminToken');
+};
+
 export async function http(
   path: string,
   opts: HttpOptions & { returnRaw: true }
@@ -39,9 +44,14 @@ export async function http<T>(
       typeof FormData !== 'undefined' && opts.body instanceof FormData;
 
     const headers = new Headers(opts.headers);
+    const token = getAdminToken();
 
     if (!isFormData && !headers.has('Content-Type')) {
       headers.set('Content-Type', 'application/json');
+    }
+
+    if (token && !headers.has('Authorization')) {
+      headers.set('Authorization', `Bearer ${token}`);
     }
 
     const res = await fetch(`${BASE}${path}`, {
