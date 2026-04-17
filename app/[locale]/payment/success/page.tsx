@@ -1,4 +1,5 @@
 import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 
 type PageProps = {
   searchParams?: Promise<Record<string, string | string[] | undefined>>;
@@ -28,6 +29,12 @@ export default async function PaymentSuccessPage({ searchParams }: PageProps) {
             {t("paymentSection.orderInfo")} {normalizedOrderId}
           </p>
         ) : null}
+        <Link
+          href="/"
+          className="inline-flex items-center justify-center mt-8 px-8 py-3 bg-teal-600 text-white rounded-full font-bold hover:bg-teal-700 transition-colors"
+        >
+          {t("paymentSection.backToHome")}
+        </Link>
       </div>
     </div>
   );

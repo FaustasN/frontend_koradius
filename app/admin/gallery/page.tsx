@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useAuth } from '../../contexts/AuthContext';
 import { galleryAPI, type GalleryItem } from '../../services/adminApiService';
 import ImageUpload from '@/app/[locale]/globalComponents/ImageUpload';
+import Image from 'next/image';
 
 type GalleryFormData = {
   title: string;
@@ -244,7 +245,9 @@ export default function AdminGalleryPage() {
                 </div>
 
                 {item.image_url && (
-                  <img
+                  <Image
+                    width={1000}
+                    height={1000}
                     src={item.image_url}
                     alt={item.title}
                     className="mt-4 h-48 w-full rounded-2xl object-cover border border-gray-200"

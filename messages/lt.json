@@ -613,7 +613,9 @@
          "processing": "Apdorojama...",
          "submitting": "Siunčiama...",
          "paymentUrlError": "Nepavyko gauti mokėjimo URL",
-         "payAmount": "Mokėti"
+         "payAmount": "Mokėti",
+         "backToHome": "Grįžti į pradžią",
+         "tryAgain": "Bandyti dar kartą"
        },
        "common": {
     "loading": "Kraunama...",

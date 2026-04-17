@@ -40,16 +40,6 @@ export interface Contact {
   created_at?: string;
 }
 
-export interface ContactSubmitPayload {
-  name: string;
-  email: string;
-  phone?: string;
-  subject: string;
-  message: string;
-  preferredContact?: string;
-  urgency?: string;
-}
-
 export interface Review {
   id: number;
   name: string;
@@ -191,20 +181,12 @@ export const authAPI = {
   }
 };
 
-// Contacts API
 export const contactsAPI = {
   getAll: async (): Promise<Contact[]> => {
     return http<Contact[]>('/admin/contacts/all', {
       method: 'GET',
     });
   },
-
-  submit: async (contactData: ContactSubmitPayload): Promise<BasicResponse> => {
-    return http<BasicResponse>('/contacts', {
-      method: 'POST',
-      body: JSON.stringify(contactData),
-    });
-  }
 };
 
 // Reviews API

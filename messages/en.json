@@ -612,7 +612,9 @@
       "processing": "Processing...",
       "submitting": "Submitting...",
       "paymentUrlError": "Failed to get payment URL",
-      "payAmount": "Pay"
+      "payAmount": "Pay",
+      "backToHome": "Back to home",
+      "tryAgain": "Try again"
     },
     "common": {
       "loading": "Loading...",

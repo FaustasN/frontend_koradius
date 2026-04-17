@@ -11,7 +11,7 @@ import {
   CheckCircle,
   X
 } from "lucide-react";
-import { contactsAPI } from "@/app/services/adminApiService";
+import { submitContactInquiry } from "@/app/services/emailService";
 import { useTranslations } from "next-intl";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -323,7 +323,7 @@ export default function ContactClient() {
     setIsSubmitting(true);
 
     try {
-      await contactsAPI.submit(formData);
+      await submitContactInquiry(formData);
       resetForm();
       setShowSuccessNotification(true);
     } catch {

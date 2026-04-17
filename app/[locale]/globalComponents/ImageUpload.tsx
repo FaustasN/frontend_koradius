@@ -3,7 +3,7 @@
 import React, { useRef, useState } from 'react';
 import { Upload, X } from 'lucide-react';
 import { http } from '../../services/httpclient';
-
+import Image from 'next/image';
 interface ImageUploadProps {
   value: string;
   onChange: (url: string) => void;
@@ -153,7 +153,9 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
       {value && (
         <div className="relative inline-block">
           <div className="group relative">
-            <img
+            <Image
+            width={1000}
+            height={1000}
               src={value}
               alt="Preview"
               className="h-32 w-32 rounded-lg border border-gray-200 object-cover"

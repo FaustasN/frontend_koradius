@@ -7,6 +7,7 @@ import {
   travelPacketsAPI,
   type TravelPacket,
 } from '../../services/adminApiService';
+import Image from 'next/image';
 import ImageUpload from '@/app/[locale]/globalComponents/ImageUpload';
 
 type PacketFormData = {
@@ -305,7 +306,9 @@ export default function AdminTravelPacketsPage() {
                 </div>
 
                 {packet.image_url && (
-                  <img
+                  <Image
+                    width={1000}
+                    height={1000}
                     src={packet.image_url}
                     alt={packet.title}
                     className="mt-4 h-48 w-full rounded-2xl object-cover border border-gray-200"

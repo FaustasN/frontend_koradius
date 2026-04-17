@@ -612,7 +612,9 @@
       "processing": "Обработка...",
       "submitting": "Отправка...",
       "paymentUrlError": "Не удалось получить URL для оплаты",
-      "payAmount": "Оплатить"
+      "payAmount": "Оплатить",
+      "backToHome": "На главную",
+      "tryAgain": "Попробовать снова"
     },
     "common": {
       "loading": "Загрузка...",
