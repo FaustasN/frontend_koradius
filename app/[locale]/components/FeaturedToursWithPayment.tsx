@@ -573,7 +573,7 @@ return (
       >
         <div
           ref={detailsContentRef}
-          className="bg-white rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+          className="modal-scroll bg-white rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
         >
           <div className="p-6">
             <div className="flex justify-between items-center mb-6">
@@ -692,7 +692,7 @@ return (
       >
         <div
           ref={bookingContentRef}
-          className="bg-white rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+        className="modal-scroll bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
         >
           <div className="p-6">
             <div className="flex justify-between items-center mb-6">

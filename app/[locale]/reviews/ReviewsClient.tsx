@@ -54,6 +54,8 @@ export default function ReviewsPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [reviews, setReviews] = useState<Review[]>([]);
   const [loading, setLoading] = useState(true);
+  const successNotificationRef = useRef<HTMLDivElement>(null);
+const errorNotificationRef = useRef<HTMLDivElement>(null);
 
   const categoryOptions = useMemo(
     () => [
@@ -297,6 +299,26 @@ export default function ReviewsPage() {
     );
   }, [showReviewForm]);
 
+  useEffect(() => {
+    if (!showSuccessNotification || !successNotificationRef.current) return;
+  
+    gsap.fromTo(
+      successNotificationRef.current,
+      { opacity: 0, y: 24, scale: 0.97 },
+      { opacity: 1, y: 0, scale: 1, duration: 0.32, ease: "power3.out" }
+    );
+  }, [showSuccessNotification]);
+  
+  useEffect(() => {
+    if (!showErrorNotification || !errorNotificationRef.current) return;
+  
+    gsap.fromTo(
+      errorNotificationRef.current,
+      { opacity: 0, y: 24, scale: 0.97 },
+      { opacity: 1, y: 0, scale: 1, duration: 0.32, ease: "power3.out" }
+    );
+  }, [showErrorNotification]);
+
   if (loading) {
     return (
       <div className="min-h-screen bg-gray-50 pt-24 flex items-center justify-center">
@@ -311,8 +333,8 @@ export default function ReviewsPage() {
   return (
     <div ref={container} className="min-h-screen bg-gray-50 pt-24">
       {showSuccessNotification && (
-        <div className="fixed top-24 right-4 z-[80] animate-slide-in-right pointer-events-none">
-          <div className="bg-white rounded-2xl shadow-2xl border-l-4 border-green-500 p-6 max-w-sm transform transition-all duration-500 ease-out pointer-events-auto">
+        <div className="fixed top-24 right-4 z-[80] pointer-events-none">
+          <div  ref={successNotificationRef} className="bg-white rounded-2xl shadow-2xl border-l-4 border-green-500 p-6 max-w-sm transform transition-all duration-500 ease-out pointer-events-auto">
             <div className="flex items-start space-x-4">
               <div className="flex-shrink-0">
                 <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
@@ -343,8 +365,8 @@ export default function ReviewsPage() {
       )}
 
       {showErrorNotification && (
-        <div className="fixed top-24 right-4 z-[80] animate-slide-in-right pointer-events-none">
-          <div className="bg-white rounded-2xl shadow-2xl border-l-4 border-red-500 p-6 max-w-sm transform transition-all duration-500 ease-out pointer-events-auto">
+        <div className="fixed top-24 right-4 z-[80]  pointer-events-none">
+          <div   ref={errorNotificationRef} className="bg-white rounded-2xl shadow-2xl border-l-4 border-red-500 p-6 max-w-sm transform transition-all duration-500 ease-out pointer-events-auto">
             <div className="flex items-start space-x-4">
               <div className="flex-shrink-0">
                 <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
@@ -396,7 +418,7 @@ export default function ReviewsPage() {
           >
             <div
               ref={modalContentRef}
-              className="bg-white rounded-3xl shadow-2xl max-w-4xl w-full max-h-[95vh] overflow-y-auto overscroll-contain"
+             className="modal-scroll bg-white rounded-3xl shadow-2xl max-w-4xl w-full max-h-[95vh] overflow-y-auto overscroll-contain"
             >
               <div className="flex items-center justify-between p-6 border-b border-gray-200">
                 <div className="flex items-center space-x-3">

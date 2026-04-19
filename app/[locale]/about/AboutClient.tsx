@@ -282,7 +282,7 @@ export default function AboutClient() {
               />
             </div>
 
-            <div className="absolute -bottom-6 -right-2 md:-right-6 bg-gradient-to-r from-teal-500 to-teal-600 text-white p-5 md:p-6 rounded-2xl shadow-xl">
+            <div className="absolute -bottom-4 right-2 md:-bottom-6 md:-right-6 bg-gradient-to-r from-teal-500 to-teal-600 text-white p-5 md:p-6 rounded-2xl shadow-xl">
               <div className="text-3xl font-bold">7+</div>
               <div className="text-sm">
                 {t("achievements.yearsExperience.label")}

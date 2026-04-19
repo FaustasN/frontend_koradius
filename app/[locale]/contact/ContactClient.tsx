@@ -41,6 +41,8 @@ const INITIAL_FORM: ContactFormState = {
 export default function ContactClient() {
   const t = useTranslations("contact");
   const container = useRef<HTMLDivElement>(null);
+  const successNotificationRef = useRef<HTMLDivElement>(null);
+const errorNotificationRef = useRef<HTMLDivElement>(null);
 
   const [formData, setFormData] = useState<ContactFormState>(INITIAL_FORM);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -334,70 +336,95 @@ export default function ContactClient() {
       setIsSubmitting(false);
     }
   };
+  useEffect(() => {
+    if (!showSuccessNotification || !successNotificationRef.current) return;
+  
+    gsap.fromTo(
+      successNotificationRef.current,
+      { opacity: 0, y: -20, scale: 0.97 },
+      { opacity: 1, y: 0, scale: 1, duration: 0.32, ease: "power3.out" }
+    );
+  }, [showSuccessNotification]);
+  
+  useEffect(() => {
+    if (!showErrorNotification || !errorNotificationRef.current) return;
+  
+    gsap.fromTo(
+      errorNotificationRef.current,
+      { opacity: 0, y: -20, scale: 0.97 },
+      { opacity: 1, y: 0, scale: 1, duration: 0.32, ease: "power3.out" }
+    );
+  }, [showErrorNotification]);
 
   return (
     <div ref={container} className="min-h-screen bg-gray-50 pt-24">
-      {showSuccessNotification && (
-        <div className="fixed top-24 right-4 z-50 animate-slide-in-right">
-          <div className="bg-white rounded-2xl shadow-2xl border-l-4 border-green-500 p-6 max-w-sm transform transition-all duration-500 ease-out">
-            <div className="flex items-start space-x-4">
-              <div className="flex-shrink-0">
-                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                  <CheckCircle className="text-green-600" size={24} />
-                </div>
-              </div>
-              <div className="flex-1">
-                <h3 className="text-lg font-bold text-gray-800 mb-1">
-                  {t("form.validation.successMessage")}
-                </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  {t("form.validation.successDescription")}
-                </p>
-              </div>
-              <button
-                onClick={() => setShowSuccessNotification(false)}
-                className="flex-shrink-0 text-gray-400 hover:text-gray-600 transition-colors duration-200"
-              >
-                <X size={20} />
-              </button>
-            </div>
-
-            <div className="mt-4 w-full bg-gray-200 rounded-full h-1">
-              <div className="bg-green-500 h-1 rounded-full animate-progress-bar"></div>
-            </div>
+    {showSuccessNotification && (
+  <div className="fixed top-24 left-1/2 -translate-x-1/2 md:left-auto md:right-4 md:translate-x-0 z-50 w-[calc(100%-2rem)] max-w-sm">
+    <div
+      ref={successNotificationRef}
+      className="w-full bg-white rounded-2xl shadow-2xl border-l-4 border-green-500 p-6"
+    >
+      <div className="flex items-start space-x-4">
+        <div className="flex-shrink-0">
+          <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+            <CheckCircle className="text-green-600" size={24} />
           </div>
         </div>
-      )}
+        <div className="flex-1">
+          <h3 className="text-lg font-bold text-gray-800 mb-1">
+            {t("form.validation.successMessage")}
+          </h3>
+          <p className="text-gray-600 text-sm leading-relaxed">
+            {t("form.validation.successDescription")}
+          </p>
+        </div>
+        <button
+          onClick={() => setShowSuccessNotification(false)}
+          className="flex-shrink-0 text-gray-400 hover:text-gray-600 transition-colors duration-200"
+        >
+          <X size={20} />
+        </button>
+      </div>
 
-      {showErrorNotification && (
-        <div className="fixed top-24 right-4 z-50 animate-slide-in-right">
-          <div className="bg-white rounded-2xl shadow-2xl border-l-4 border-red-500 p-6 max-w-sm transform transition-all duration-500 ease-out">
-            <div className="flex items-start space-x-4">
-              <div className="flex-shrink-0">
-                <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
-                  <X className="text-red-600" size={24} />
-                </div>
-              </div>
-              <div className="flex-1">
-                <h3 className="text-lg font-bold text-gray-800 mb-1">
-                  {t("form.validation.errorMessage")}
-                </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{errorMessage}</p>
-              </div>
-              <button
-                onClick={() => setShowErrorNotification(false)}
-                className="flex-shrink-0 text-gray-400 hover:text-gray-600 transition-colors duration-200"
-              >
-                <X size={20} />
-              </button>
-            </div>
+      <div className="mt-4 w-full bg-gray-200 rounded-full h-1">
+        <div className="bg-green-500 h-1 rounded-full animate-progress-bar"></div>
+      </div>
+    </div>
+  </div>
+)}
 
-            <div className="mt-4 w-full bg-gray-200 rounded-full h-1">
-              <div className="bg-red-500 h-1 rounded-full animate-progress-bar"></div>
-            </div>
+{showErrorNotification && (
+  <div className="fixed top-24 left-1/2 -translate-x-1/2 md:left-auto md:right-4 md:translate-x-0 z-50 w-[calc(100%-2rem)] max-w-sm">
+    <div
+      ref={errorNotificationRef}
+      className="w-full bg-white rounded-2xl shadow-2xl border-l-4 border-red-500 p-6"
+    >
+      <div className="flex items-start space-x-4">
+        <div className="flex-shrink-0">
+          <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
+            <X className="text-red-600" size={24} />
           </div>
         </div>
-      )}
+        <div className="flex-1">
+          <h3 className="text-lg font-bold text-gray-800 mb-1">
+            {t("form.validation.errorMessage")}
+          </h3>
+          <p className="text-gray-600 text-sm leading-relaxed">{errorMessage}</p>
+        </div>
+        <button
+          onClick={() => setShowErrorNotification(false)}
+          className="flex-shrink-0 text-gray-400 hover:text-gray-600 transition-colors duration-200"
+        >
+          <X size={20} />
+        </button>
+      </div>
+
+      <div className="mt-4 w-full bg-gray-200 rounded-full h-1">
+        <div className="bg-red-500 h-1 rounded-full animate-progress-bar"></div>
+      </div>
+    </div>
+  </div>
+)}
 
       <div className="container mx-auto px-4 py-8">
         <div className="firstAni opacity-0 text-center mb-12">
