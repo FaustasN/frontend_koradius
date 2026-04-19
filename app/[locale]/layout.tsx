@@ -6,7 +6,8 @@ import Header from './globalComponents/Header';
 import ScrollToTop from './globalComponents/ScrollToTop';
 import Footer from './globalComponents/Footer';
 import { Metadata } from 'next';
-
+import { GoogleTagManager } from "@next/third-parties/google";
+const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
 
 type LocaleLayoutProps = Readonly<{
   children: React.ReactNode;
@@ -26,12 +27,16 @@ export default async function LocaleLayout({
   setRequestLocale(locale);
 
   return (
-    <NextIntlClientProvider>
-      <Header />
-      <main className="flex-1">{children}</main>
-      <Footer/>
-      <ScrollToTop/>
-    </NextIntlClientProvider>
+    <>
+      <NextIntlClientProvider>
+        <Header />
+        <main className="flex-1">{children}</main>
+        <Footer />
+        <ScrollToTop />
+      </NextIntlClientProvider>
+  
+      {gtmId ? <GoogleTagManager gtmId={gtmId} /> : null}
+    </>
   );
 }
 export const metadata: Metadata = {

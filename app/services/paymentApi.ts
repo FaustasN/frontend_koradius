@@ -11,6 +11,7 @@ export type CreatePaymentPayload = {
   email: string;
   departureDate: string;
   numberOfPeople: number;
+  gaClientId?: string | null;
 };
 
 export type CreatePaymentResponse = {

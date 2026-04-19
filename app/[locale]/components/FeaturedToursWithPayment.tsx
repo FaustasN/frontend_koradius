@@ -19,6 +19,8 @@ import { gsap } from "gsap";
 import { travelPacketsApi, transformTravelPacket } from "../../services/apiService";
 import CustomDatePicker from "../globalComponents/CustomDatePicker";
 import { paymentApi } from "@/app/services/paymentApi";
+import { trackAddPaymentInfo, trackBeginCheckout, trackViewItem } from "@/app/analytics/trackEcommerce";
+import { getGaClientIdFromCookie } from "@/app/analytics/getClientId";
 type TravelPacket = {
   id: number;
   title: string;
@@ -143,6 +145,7 @@ const FeaturedToursWithPayment = () => {
       { opacity: 1, y: 0, scale: 1, duration: 0.32, ease: "power3.out" }
     );
   }, [showBookingForm]);
+  // Analytics
 
   const totalPages = useMemo(() => Math.ceil(tours.length / toursPerPage), [tours.length]);
 
@@ -167,6 +170,20 @@ const FeaturedToursWithPayment = () => {
   };
 
   const openBookingForm = (tour: TravelPacket) => {
+    trackBeginCheckout({
+      currency: "EUR",
+      value: Number(tour.price) || 0,
+      items: [
+        {
+          item_id: String(tour.id),
+          item_name: tour.title,
+          item_category: tour.category,
+          price: Number(tour.price) || 0,
+          quantity: 1,
+        },
+      ],
+    });
+  
     setSelectedTour(tour);
     resetBookingState();
     setShowBookingForm(true);
@@ -179,6 +196,20 @@ const FeaturedToursWithPayment = () => {
   };
 
   const openTourDetails = (tour: TravelPacket) => {
+    trackViewItem({
+      currency: "EUR",
+      value: Number(tour.price) || 0,
+      items: [
+        {
+          item_id: String(tour.id),
+          item_name: tour.title,
+          item_category: tour.category,
+          price: Number(tour.price) || 0,
+          quantity: 1,
+        },
+      ],
+    });
+  
     setTourDetails(tour);
     setShowTourDetails(true);
   };
@@ -321,8 +352,23 @@ const FeaturedToursWithPayment = () => {
   
     setFormError("");
     setIsSubmitting(true);
-  
+    trackAddPaymentInfo({
+      currency: "EUR",
+      value: calculateTotalPrice(),
+      payment_type: "paysera",
+      items: [
+        {
+          item_id: String(selectedTour.id),
+          item_name: selectedTour.title,
+          item_category: selectedTour.category,
+          price: Number(selectedTour.price) || 0,
+          quantity: bookingForm.numberOfPeople,
+        },
+      ],
+    });
+    
     try {
+      const gaClientId = getGaClientIdFromCookie();
       const response = await paymentApi.createPayment({
         travelPacketId: selectedTour.id,
         name: bookingForm.name.trim(),
@@ -330,6 +376,7 @@ const FeaturedToursWithPayment = () => {
         email: bookingForm.email.trim(),
         departureDate: bookingForm.departureDate,
         numberOfPeople: bookingForm.numberOfPeople,
+        gaClientId,
       });
 
       window.location.href = response.paymentUrl;
