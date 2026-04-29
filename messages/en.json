@@ -292,9 +292,9 @@
       ],
       "validation": {
         "fillAllFields": "Please fill in all required fields",
-        "nameMinLength": "Name must be at least 3 characters long",
+        "nameMinLength": "Name must be at least 3 - 15 letters",
         "emailInvalid": "Email must contain @ and . symbols",
-        "phoneInvalid": "Phone number must be at least 6 digits and contain only numbers",
+        "phoneInvalid": "Phone number must be at least 6 - 12 digits and contain only numbers",
         "messageMinLength": "Message must be at least 3 characters long",
         "messageMaxLength": "Message cannot be longer than 70 characters",
         "errorMessage": "Error",
@@ -461,9 +461,9 @@
         "minLength": "Minimum length: 15 characters",
         "charCount": "characters",
         "fillAllFields": "Please fill in all fields and select a rating",
-        "nameMinLength": "The name must be at least 3 letters long",
+        "nameMinLength": "Name must be at least 3 - 15 letters",
         "emailInvalid": "The email must contain @ and . symbols",
-        "descriptionMinLength": "The review must be at least 15 characters long"
+        "descriptionMinLength": "The review must be at least 15 - 70 characters long"
       },
       "autoDate": "The review date will be set automatically:",
       "buttons": {
@@ -591,11 +591,11 @@
       "minPeople": "Min: 1 person",
       "validation": {
         "fillAllFields": "Please fill in all fields",
-        "nameMinLength": "Name must be at least 3 letters",
+        "nameMinLength": "Name must be at least 3 - 15 letters",
         "nameOnlyLetters": "Name can only contain letters and spaces",
         "emailRequired": "Email address is required",
         "emailInvalid": "Please enter a valid email address",
-        "phoneMinLength": "Phone number must be at least 6 digits",
+        "phoneMinLength": "Phone number must be at least 6 - 12 digits",
         "departureDateInvalid": "Departure date cannot be today or earlier",
         "generalError": "Sorry, an error occurred. Please try again."
       }

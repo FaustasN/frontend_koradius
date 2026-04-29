@@ -293,9 +293,9 @@
         ],
         "validation": {
           "fillAllFields": "Prašome užpildyti visus privalomus laukus",
-          "nameMinLength": "Vardas turi būti bent 3 raidžių ilgio",
+          "nameMinLength": "Vardas turi būti nuo 3 iki 15 simbolių ilgio",
           "emailInvalid": "El. paštas turi turėti @ ir . simbolius",
-          "phoneInvalid": "Telefono numeris turi būti bent 6 skaičių ir turėti tik skaičius",
+          "phoneInvalid": "Telefono numeris turi būti bent 6 - 12 skaičių ir turėti tik skaičius",
           "messageMinLength": "Žinutė turi būti bent 3 simbolių ilgio",
           "messageMaxLength": "Žinutė negali būti ilgesnė nei 70 simbolių",
              "errorMessage": "Klaida",
@@ -462,9 +462,9 @@
           "minLength": "Minimalus ilgis: 15 simbolių",
           "charCount": "simbolių",
           "fillAllFields": "Prašome užpildyti visus laukus ir pasirinkti įvertinimą",
-          "nameMinLength": "Vardas turi būti bent 3 raidžių ilgio",
+          "nameMinLength": "Vardas turi būti nuo 3 iki 15 simbolių ilgio",
           "emailInvalid": "El. paštas turi turėti @ ir . simbolius",
-          "descriptionMinLength": "Atsiliepimas turi būti bent 15 simbolių ilgio"
+          "descriptionMinLength": "Atsiliepimas turi būti bent 15 - 70 simbolių ilgio"
         },
         "autoDate": "Atsiliepimo data bus automatiškai nustatyta:",
         "buttons": {
@@ -592,11 +592,11 @@
          "minPeople": "Min: 1 asmuo",
          "validation": {
            "fillAllFields": "Prašome užpildyti visus laukus",
-           "nameMinLength": "Vardas turi būti bent 3 raidės",
+           "nameMinLength": "Vardas turi būti nuo 3 iki 15 simbolių ilgio",
            "nameOnlyLetters": "Vardas gali turėti tik raides ir tarpus",
            "emailRequired": "El. pašto adresas yra būtinas",
            "emailInvalid": "Įveskite teisingą el. pašto adresą",
-           "phoneMinLength": "Telefono numeris turi būti bent 6 skaitmenys",
+           "phoneMinLength": "Telefono numeris turi būti bent 6 - 12 skaitmenys",
            "departureDateInvalid": "Išvykimo data negali būti šiandien ar ankstesnė",
            "generalError": "Atsiprašome, įvyko klaida. Bandykite dar kartą."
          }

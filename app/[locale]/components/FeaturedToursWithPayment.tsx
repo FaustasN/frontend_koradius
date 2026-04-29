@@ -230,7 +230,7 @@ const FeaturedToursWithPayment = () => {
   const validateName = (name: string): boolean => {
     const trimmedName = name.trim();
 
-    if (trimmedName.length < 3) {
+    if (trimmedName.length < 3 || trimmedName.length > 15) {
       setNameError(t("bookingForm.validation.nameMinLength"));
       return false;
     }
@@ -265,7 +265,7 @@ const FeaturedToursWithPayment = () => {
   const validatePhone = (phone: string): boolean => {
     const digitsOnly = phone.replace(/\D/g, "");
 
-    if (digitsOnly.length < 6) {
+    if (digitsOnly.length < 6 || digitsOnly.length > 12) {
       setPhoneError(t("bookingForm.validation.phoneMinLength"));
       return false;
     }

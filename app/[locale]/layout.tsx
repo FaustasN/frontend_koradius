@@ -36,7 +36,6 @@ export default async function LocaleLayout({
         <ScrollToTop />
         <UserConsent />
       </NextIntlClientProvider>
-  
       {gaId ? <GoogleAnalytics gaId={gaId} /> : null}
     </>
   );

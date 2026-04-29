@@ -179,7 +179,7 @@ const errorNotificationRef = useRef<HTMLDivElement>(null);
       return;
     }
 
-    if (reviewForm.name.trim().length < 3) {
+    if (reviewForm.name.trim().length < 3 || reviewForm.name.trim().length > 15) {
       displayErrorNotification(t("form.validation.nameMinLength"));
       return;
     }
@@ -189,7 +189,7 @@ const errorNotificationRef = useRef<HTMLDivElement>(null);
       return;
     }
 
-    if (reviewForm.description.trim().length < 15) {
+    if (reviewForm.description.trim().length < 15 || reviewForm.description.trim().length > 70) {
       displayErrorNotification(t("form.validation.descriptionMinLength"));
       return;
     }
