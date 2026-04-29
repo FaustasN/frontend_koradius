@@ -69,7 +69,7 @@
     "newsletter": "Naujienlaiškis",
     "subscribe": "Prenumeruoti",
     "emailPlaceholder": "Įveskite savo el. paštą",
-    "copyright": "© 2024 Koradius. Visos teisės saugomos.",
+    "copyright": "© 2026 Kelionių Kampas. Visos teisės saugomos.",
     "companyInfo": {
       "mission": "Jūsų patikimas kelionių partneris, kuriantis nepamirštamus kelionių išgyvenimus jau 7 metus."
     },
@@ -90,7 +90,7 @@
       }
     },
     "bottomFooter": {
-      "copyright": "© 2026 Koradius Travel. Visos teisės saugomos.",
+      "copyright": "© 2026 Kelionių Kampas. Visos teisės saugomos.",
       "privacyPolicy": "Privatumo politika",
       "termsOfUse": "Naudojimo taisyklės",
       "cookies": "Slapukai"
@@ -105,6 +105,12 @@
       "searchTours": "Ieškoti kelionių",
       "reviews": "Atsiliepimai",
       "search": "Paieška"
+    },
+    "userConsent": {
+      "title": "Naudojame slapukus",
+      "description": "Slapukus naudojame svetainės veikimui gerinti ir suprasti, kaip ji naudojama. Galite sutikti arba atsisakyti nebūtinų slapukų.",
+      "accept": "Sutinku",
+      "decline": "Nesutinku"
     },
     "about": {
       "title": "Apie mus",
@@ -123,7 +129,7 @@
       },
       "story": {
         "title": "Mūsų istorija",
-        "paragraph1": "Koradius Travel gimė iš aistros kelionėms ir noro padėti lietuviams atrasti pasaulio grožį. 2017 metais įskūrusi nedidelė kelionių agentūra, kuri svajojo sukurti paslaugą, kuri būtų pritaikyta būtent lietuvių poreikiams.",
+        "paragraph1": "Kelionių Kampas gimė iš aistros kelionėms ir noro padėti lietuviams atrasti pasaulio grožį. 2017 metais įskūrusi nedidelė kelionių agentūra, kuri svajojo sukurti paslaugą, kuri būtų pritaikyta būtent lietuvių poreikiams.",
         "paragraph2": "Per 7 metus išaugome į patikimą kelionių partnerį, kuris specializuojasi ne tik įprastose atostogose, bet ir medicininiam turizmui. Ypač didžiuojamės tuo, kad mūsų paslaugos yra pritaikytos vyresnio amžiaus žmonėms - suprantame jūsų poreikius ir rūpinamės komfortu kiekviename žingsnyje.",
         "paragraph3": "Šiandien esame išsiuntę į keliones daugiau nei 5000 lietuvių ir tęsiame augti, išlaikydami asmeninį požiūrį į kiekvieną klientą. Mūsų tikslas - ne tik parduoti kelionę, bet sukurti nepamirštamą išgyvenimą."
       },
@@ -322,7 +328,7 @@
         "email": {
           "title": "El. paštas",
           "details": [
-            "koradiustravel@gmail.com"
+            "jdfcompetition@gmail.com"
           ]
         },
         "workingHours": {
@@ -392,7 +398,7 @@
         "firstPart": "Klientų",
         "secondPart": "atsiliepimai"
       },
-      "subtitle": "Sužinokite, ką sako mūsų klientai apie keliones su Koradius Travel",
+      "subtitle": "Sužinokite, ką sako mūsų klientai apie keliones su Kelionių Kampas",
       "stats": {
         "averageRating": "Vidutinis įvertinimas",
         "totalReviews": "Atsiliepimų",

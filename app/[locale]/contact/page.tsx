@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import ContactClient from './ContactClient';
 
 export const metadata: Metadata = {
-  title: 'Koradius Travel | Contact us',
+  title: 'Kelionių Kampas | Contact us',
   description:
     'Leave your questions and contact our team for help with trips, bookings, and travel information.'
 };

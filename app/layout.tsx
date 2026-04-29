@@ -34,6 +34,6 @@ export default function RootLayout({
   );
 }export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: 'Koradius Travel',
-  description: 'Koradius Travel is a travel agency that offers tours to various destinations.',
+  title: 'Kelionių Kampas',
+  description: 'Kelionių Kampas is a travel agency that offers tours to various destinations.',
 };

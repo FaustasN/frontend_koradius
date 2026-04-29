@@ -16,11 +16,11 @@
                 <div className="flex items-center gap-3 mb-4">
                   <Image
                     src={logo}
-                    alt="Koradius Travel Logo"
+                    alt="Kelionių Kampas Logo"
                     className="h-10 w-auto object-contain"
                     priority
                   />
-                  <span className="text-xl sm:text-2xl font-bold">Koradius Travel</span>
+                  <span className="text-xl sm:text-2xl font-bold">Kelionių Kampas</span>
                 </div>
                 <p className="text-sm sm:text-base text-gray-300 leading-relaxed max-w-sm">
                   {t('companyInfo.mission')}

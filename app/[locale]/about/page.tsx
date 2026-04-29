@@ -2,9 +2,9 @@ import type { Metadata } from 'next';
 import AboutClient from './AboutClient';
 
 export const metadata: Metadata = {
-  title: 'Koradius Travel | About us',
+  title: 'Kelionių Kampas | About us',
   description:
-    'In this page learn more about Koradius Travel experience, values and travel services.'
+    'In this page learn more about Kelionių Kampas experience, values and travel services.'
 };
 
 export default function AboutPage() {

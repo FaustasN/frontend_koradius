@@ -85,7 +85,7 @@ const errorNotificationRef = useRef<HTMLDivElement>(null);
       {
         icon: Mail,
         title: t("contactInfo.email.title"),
-        details: ["koradiustravel@gmail.com"],
+        details: ["jdfcompetition@gmail.com"],
         color: "text-blue-500"
       },
       {
@@ -457,7 +457,7 @@ const errorNotificationRef = useRef<HTMLDivElement>(null);
             <h3 className="text-xl font-bold mb-2">{t("quickContact.email.title")}</h3>
             <p className="mb-4 opacity-90">{t("quickContact.email.description")}</p>
             <a
-              href="mailto:koradiustravel@gmail.com"
+              href="mailto:jdfcompetition@gmail.com"
               className="bg-white hover:bg-gray-100 text-blue-600 font-bold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 inline-block btn-hover-smooth"
             >
               {t("quickContact.email.button")}
@@ -726,7 +726,7 @@ const errorNotificationRef = useRef<HTMLDivElement>(null);
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Koradius Travel - Švitrigailos g. 11A-330, Vilnius"
+                  title="Kelionių kampas - Švitrigailos g. 11A-330, Vilnius"
                   className="w-full h-full"
                 ></iframe>
               </div>

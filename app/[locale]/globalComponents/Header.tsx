@@ -70,17 +70,17 @@ export default function Header() {
           >
             <Image
               src={logo}
-              alt="Koradius Travel Logo"
+              alt="Kelionių Kampas Logo"
               className="h-12 w-auto object-contain group-hover:scale-105 transition-transform duration-300"
               priority
             />
 
             <div className="flex flex-col min-w-0">
               <span className="text-2xl font-bold text-gray-800 group-hover:text-teal-600 transition-colors duration-300 leading-none">
-                Koradius
+                Kelionių 
               </span>
               <span className="text-sm text-teal-600 font-medium leading-none mt-1">
-                Travel
+                Kampas
               </span>
             </div>
           </Link>

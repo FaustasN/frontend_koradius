@@ -68,7 +68,7 @@
     "newsletter": "Newsletter",
     "subscribe": "Subscribe",
     "emailPlaceholder": "Enter your email",
-    "copyright": "© 2024 Koradius. All rights reserved.",
+    "copyright": "© 2026 Kelionių Kampas. All rights reserved.",
     "companyInfo": {
       "mission": "Your trusted travel partner, creating unforgettable travel experiences for 7 years."
     },
@@ -89,7 +89,7 @@
       }
     },
     "bottomFooter": {
-      "copyright": "© 2026 Koradius Travel. All rights reserved.",
+      "copyright": "© 2026 Kelionių Kampas. All rights reserved.",
       "privacyPolicy": "Privacy Policy",
       "termsOfUse": "Terms of Use",
       "cookies": "Cookies"
@@ -104,6 +104,12 @@
     "searchTours": "Search Tours",
     "reviews": "Reviews",
     "search": "Search"
+  },
+  "userConsent": {
+    "title": "We use cookies",
+    "description": "We use cookies to improve the website and understand how it’s used. You can accept or decline optional cookies.",
+    "accept": "Accept",
+    "decline": "Decline"
   },
   "about": {
     "title": "About Us",
@@ -122,7 +128,7 @@
     },
     "story": {
       "title": "Our Story",
-      "paragraph1": "Koradius Travel was born from a passion for travel and a desire to help Lithuanians discover the beauty of the world. Founded in 2017 as a small travel agency, we dreamed of creating a service that would be tailored specifically to Lithuanian needs.",
+      "paragraph1": "Kelionių Kampas was born from a passion for travel and a desire to help Lithuanians discover the beauty of the world. Founded in 2017 as a small travel agency, we dreamed of creating a service that would be tailored specifically to Lithuanian needs.",
       "paragraph2": "Over 7 years, we have grown into a reliable travel partner specializing not only in regular holidays but also in medical tourism. We are particularly proud that our services are adapted for older people - we understand your needs and care about comfort at every step.",
       "paragraph3": "Today we have sent more than 5000 Lithuanians on trips and continue to grow while maintaining a personal approach to each client. Our goal is not just to sell a trip, but to create an unforgettable experience."
     },
@@ -321,7 +327,7 @@
       "email": {
         "title": "Email",
         "details": [
-          "koradiustravel@gmail.com"
+          "jdfcompetition@gmail.com"
         ]
       },
       "workingHours": {
@@ -391,7 +397,7 @@
       "firstPart": "Customer",
       "secondPart": "reviews"
     },
-    "subtitle": "Find out what our clients say about traveling with Koradius Travel",
+    "subtitle": "Find out what our clients say about traveling with Kelionių Kampas",
     "stats": {
       "averageRating": "Average rating",
       "totalReviews": "Reviews",

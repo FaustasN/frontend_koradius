@@ -598,10 +598,10 @@ export default function GalleryClient() {
           <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto">
             {t("uploadSection.description")}{" "}
             <a
-              href="mailto:koradiustravel@gmail.com"
+              href="mailto:jdfcompetition@gmail.com"
               className="text-black hover:text-gray-800 underline transition-colors duration-200"
             >
-              koradiustravel@gmail.com
+             jdfcompetition@gmail.com
             </a>{" "}
             {t("uploadSection.and")}
           </p>
