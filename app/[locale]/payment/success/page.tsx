@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
+import PurchaseSuccessClient from "./PurchaseSuccessClient";
 
 type PageProps = {
   searchParams?: Promise<Record<string, string | string[] | undefined>>;
@@ -36,6 +37,7 @@ export default async function PaymentSuccessPage({ searchParams }: PageProps) {
           {t("paymentSection.backToHome")}
         </Link>
       </div>
+      <PurchaseSuccessClient />
     </div>
   );
 }

@@ -352,10 +352,10 @@ const FeaturedToursWithPayment = () => {
   
     setFormError("");
     setIsSubmitting(true);
-    trackAddPaymentInfo({
+    const purchasePayload = {
+      transaction_id: "",
       currency: "EUR",
       value: calculateTotalPrice(),
-      payment_type: "paysera",
       items: [
         {
           item_id: String(selectedTour.id),
@@ -365,6 +365,13 @@ const FeaturedToursWithPayment = () => {
           quantity: bookingForm.numberOfPeople,
         },
       ],
+    };
+
+    trackAddPaymentInfo({
+      currency: purchasePayload.currency,
+      value: purchasePayload.value,
+      payment_type: "paysera",
+      items: purchasePayload.items,
     });
     
     try {
@@ -378,6 +385,16 @@ const FeaturedToursWithPayment = () => {
         numberOfPeople: bookingForm.numberOfPeople,
         gaClientId,
       });
+
+      if (typeof window !== "undefined") {
+        window.localStorage.setItem(
+          "purchaseEventPayload",
+          JSON.stringify({
+            ...purchasePayload,
+            transaction_id: response.orderId,
+          })
+        );
+      }
 
       window.location.href = response.paymentUrl;
     } catch (error) {
