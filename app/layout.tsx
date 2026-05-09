@@ -14,9 +14,17 @@ const geistMono = Geist_Mono({
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, '') ||
-  'http://localhost:3000';
+  'https://www.kelioniukampas.lt';
 
-
+export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: 'Kelionių Kampas',
+    template: '%s',
+  },
+  description:
+    'Kelionių Kampas is a travel agency that offers tours to various destinations.',
+};
 
 export default function RootLayout({
   children,
@@ -32,8 +40,4 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
-}export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
-  title: 'Kelionių Kampas',
-  description: 'Kelionių Kampas is a travel agency that offers tours to various destinations.',
-};
+}
